@@ -3,14 +3,14 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/sbin:/b
 export LANG=en_US.UTF-8
 
 # 当前脚本版本号和新增功能
-VERSION=2.35
+VERSION=2.37
 
 declare -A T
 
 T[E0]="\n Language:\n  1.English (default) \n  2.简体中文\n"
 T[C0]="${T[E0]}"
-T[E1]="1. WARP support Debian 9"
-T[C1]="1. WARP 支持 Debian 9"
+T[E1]="1. First publication on a global scale: After WirePorxy, another major technological breakthrough -- WARP-Cli's WARP mode solution. Thanks to the original creator -- Teacher LUBAN. It solves two major pain points: 1) The instability of the traditional proxy model; 2) Currently HK does not have a WARP service; "
+T[C1]="1. 全网首发: 继 WirePorxy 之后，又一重大技术突破，WARP-Cli 的 WARP 模式方案，感谢原创者 LUBAN 老师，引用大神的思路，解决两大痛点: 1) 传统 proxy 模式的断流和慢; 2) 解决 HK 没有 WARP 服务;"
 T[E2]="The script must be run as root, you can enter sudo -i and then download and run again. Feedback: [https://github.com/fscarmen/warp/issues]"
 T[C2]="必须以root方式运行脚本，可以输入 sudo -i 后重新下载运行，问题反馈:[https://github.com/fscarmen/warp/issues]"
 T[E3]="The TUN module is not loaded. You should turn it on in the control panel. Ask the supplier for more help. Feedback: [https://github.com/fscarmen/warp/issues]"
@@ -19,8 +19,8 @@ T[E4]="The WARP server cannot be connected. It may be a China Mainland VPS. You 
 T[C4]="与 WARP 的服务器不能连接,可能是大陆 VPS，可手动 ping 162.159.193.10 或 ping6 2606:4700:d0::a29f:c001，如能连通可再次运行脚本，问题反馈:[https://github.com/fscarmen/warp/issues]"
 T[E5]="The script supports Debian, Ubuntu, CentOS or Alpine systems only. Feedback: [https://github.com/fscarmen/warp/issues]"
 T[C5]="本脚本只支持 Debian、Ubuntu、CentOS 或 Alpine 系统,问题反馈:[https://github.com/fscarmen/warp/issues]"
-T[E6]="warp h (help)\n warp o (Turn off WARP temporarily)\n warp u (Turn off and uninstall WARP interface and Socks5 Linux Client)\n warp b (Upgrade kernel, turn on BBR, change Linux system)\n warp a (Upgrade to WARP+ account)\n warp a N5670ljg-sS9jD334-6o6g4M9F (Upgrade to WARP+ account with the license)\n warp a http://gist.github.com/teams.xml (Upgrade to Teams account with the URL)\n warp p (Getting WARP+ quota by scripts)\n warp v (Sync the latest version)\n warp r (Connect/Disconnect WARP Linux Client)\n warp 4/6 (Add WARP IPv4/IPv6 interface)\n warp 4 N5670ljg-sS9jD334-6o6g4M9F Goodluck (Add IPv4 WARP+ interface with the license and named Goodluck)\n warp d (Add WARP dualstack interface IPv4 + IPv6)\n warp d N5670ljg-sS9jD334-6o6g4M9F Goodluck (Add WARP+ dualstack interface with the license and named Goodluck)\n warp c (Install WARP Linux Client)\n warp c N5670ljg-sS9jD334-6o6g4M9F(Install WARP+ Linux Client with the license)\n warp i (Change the WARP IP to support Netflix)\n warp s (WARP single and dual stacks switch echo other. Such as [warp s 4],[warp s 6],[warp s d])\n"
-T[C6]="warp h (帮助菜单）\n warp o (临时warp开关)\n warp u (卸载 WARP 网络接口和 Socks5 Client)\n warp b (升级内核、开启BBR及DD)\n warp a (免费 WARP 账户升级 WARP+)\n warp a N5670ljg-sS9jD334-6o6g4M9F (指定 License 升级 WARP+)\n warp a http://gist.github.com/teams.xml (指定 URL 升级 Teams)\n warp p (刷WARP+流量)\n warp v (同步脚本至最新版本)\n warp r (WARP Linux Client 开关)\n warp 4/6 (WARP IPv4/IPv6 单栈)\n warp 4 N5670ljg-sS9jD334-6o6g4M9F Goodluck (指定 WARP+ License WARP IPv4 单栈，设备名为 Goodluck)\n warp d (WARP 双栈)\n warp d N5670ljg-sS9jD334-6o6g4M9F Goodluck (指定 WARP+ License 双栈，设备名为 Goodluck)\n warp c (安装 WARP Linux Client，开启 Socks5 代理模式)\n warp c N5670ljg-sS9jD334-6o6g4M9F (指定 WARP+ License 安装 WARP Linux Client，开启 Socks5 代理模式)\n warp i (更换支持 Netflix 的IP)\n warp s [OPTION](WARP 单双栈相互切换，如 [warp s 4]、[warp s 6]、[warp s d])\n"
+T[E6]="warp h (help)\n warp o (Turn off WARP temporarily)\n warp u (Turn off and uninstall WARP interface and Socks5 Linux Client)\n warp b (Upgrade kernel, turn on BBR, change Linux system)\n warp a (Upgrade to WARP+ account)\n warp p (Getting WARP+ quota by scripts)\n warp v (Sync the latest version)\n warp r (Connect/Disconnect WARP Linux Client)\n warp 4/6 (Add WARP IPv4/IPv6 interface)\n warp d (Add WARP dualstack interface IPv4 + IPv6)\n warp c (Install WARP Linux Client and set to proxy mode)\n warp l (Install WARP Linux Client and set to WARP mode)\n warp i (Change the WARP IP to support Netflix)\n warp s (WARP single and dual stacks switch echo other. Such as [warp s 4],[warp s 6],[warp s d])\n warp e (Install Iptables + dnsmasq + ipset solution)\n warp w (Install WireProxy solution)\n warp y (Connect/Disconnect WireProxy socks5)\n"
+T[C6]="warp h (帮助菜单）\n warp o (临时warp开关)\n warp u (卸载 WARP 网络接口和 Socks5 Client)\n warp b (升级内核、开启BBR及DD)\n warp a (免费 WARP 账户升级 WARP+)\n warp p (刷WARP+流量)\n warp v (同步脚本至最新版本)\n warp r (WARP Linux Client 开关)\n warp 4/6 (WARP IPv4/IPv6 单栈)\n warp d (WARP 双栈)\n warp c (安装 WARP Linux Client，开启 Socks5 代理模式)\n warp l (安装 WARP Linux Client，开启 WARP 模式)\n warp i (更换支持 Netflix 的IP)\n warp s [OPTION](WARP 单双栈相互切换，如 [warp s 4]、[warp s 6]、[warp s d])\n warp e (安装 Iptables + dnsmasq + ipset 解决方案)\n warp w (安装 WireProxy 解决方案)\n warp y (WireProxy socks5 开关)\n"
 T[E7]="Installing curl..."
 T[C7]="安装curl中……"
 T[E8]="It is necessary to upgrade the latest package library before install curl.It will take a little time,please be patiently..."
@@ -55,8 +55,8 @@ T[E22]="Architecture"
 T[C22]="处理器架构"
 T[E23]="Virtualization"
 T[C23]="虚拟化"
-T[E24]="Socks5 Client is on"
-T[C24]="Socks5 Client 已开启"
+T[E24]="Client is on"
+T[C24]="Client 已开启"
 T[E25]="Device name"
 T[C25]="设备名"
 T[E26]="Curren operating system is \$SYS.\\\n The system lower than \$SYSTEM \${MAJOR[int]} is not supported. Feedback: [https://github.com/fscarmen/warp/issues]"
@@ -75,8 +75,8 @@ T[E32]="Step 1/3: Install dependencies..."
 T[C32]="进度 1/3：安装系统依赖……"
 T[E33]="Step 2/3: WGCF is ready"
 T[C33]="进度 2/3：已安装 WGCF"
-T[E34]="This system is a native dualstack. You can only choose the WARP dualstack. Same options as 1"
-T[C34]="此系统为原生双栈，只能选择 WARP 双栈方案，选项与 1 相同"
+T[E34]="Failed to change port. Feedback: [https://github.com/fscarmen/warp/issues]"
+T[C34]="更换端口不成功，问题反馈:[https://github.com/fscarmen/warp/issues]"
 T[E35]="Update WARP+ account..."
 T[C35]="升级 WARP+ 账户中……"
 T[E36]="The upgrade failed, WARP+ account error or more than 5 devices have been activated. Free WARP account to continu."
@@ -97,8 +97,8 @@ T[E43]="Run again with warp [option] [lisence], such as"
 T[C43]="再次运行用 warp [option] [lisence]，如"
 T[E44]="WARP installation failed. Feedback: [https://github.com/fscarmen/warp/issues]"
 T[C44]="WARP 安装失败，问题反馈:[https://github.com/fscarmen/warp/issues]"
-T[E45]="WARP interface and Linux Client have been completely deleted!"
-T[C45]="WARP 网络接口和 Linux Client 已彻底删除!"
+T[E45]="WARP interface, Linux Client and WirePorxy have been completely deleted!"
+T[C45]="WARP 网络接口、 Linux Client 和 WirePorxy 已彻底删除!"
 T[E46]="Not cleaned up, please reboot and try again."
 T[C46]="没有清除干净，请重启(reboot)后尝试再次删除"
 T[E47]="Upgrade kernel, turn on BBR, change Linux system by other authors [ylx2016],[https://github.com/ylx2016/Linux-NetSpeed]"
@@ -151,8 +151,8 @@ T[E70]="WARP dualstack"
 T[C70]="WARP 双栈"
 T[E71]="Turn on WARP"
 T[C71]="打开 WARP"
-T[E72]="Turn off, uninstall WARP interface and Linux Client"
-T[C72]="永久关闭 WARP 网络接口，并删除 WARP 和 Linux Client"
+T[E72]="Turn off, uninstall WARP interface, Linux Client and WireProxy"
+T[C72]="永久关闭 WARP 网络接口，并删除 WARP、 Linux Client 和 WireProxy"
 T[E73]="Upgrade kernel, turn on BBR, change Linux system"
 T[C73]="升级内核、安装BBR、DD脚本"
 T[E74]="Getting WARP+ quota by scripts"
@@ -171,16 +171,16 @@ T[E80]="Professional one-click script for WARP to unblock streaming media (Suppo
 T[C80]="WARP 解锁 Netflix 等流媒体专业一键(支持多平台、多方式和 TG 通知)"
 T[E81]="Step 3/3: Searching for the best MTU value is ready."
 T[C81]="进度 3/3：寻找 MTU 最优值已完成"
-T[E82]="Install WARP Client for Linux and Proxy Mode"
-T[C82]="安装 WARP 的 Linux Client 和代理模式"
+T[E82]="Install CloudFlare Client and set mode to Proxy"
+T[C82]="安装 CloudFlare Client 并设置为 Proxy 模式"
 T[E83]="Step 1/2: Installing WARP Client..."
 T[C83]="进度 1/2： 安装 Client……"
-T[E84]="Step 2/2: Setting to Proxy Mode"
-T[C84]="进度 2/2： 设置代理模式"
-T[E85]="Client was installed. You can connect/disconnect by [warp r]"
-T[C85]="Linux Client 已安装，连接/断开 Client 可以用 warp r"
-T[E86]="Client is working. Socks5 proxy listening on: \$(ss -nltp | grep warp | grep -oP '127.0*\S+')"
-T[C86]="Linux Client 正常运行中。 Socks5 代理监听:\$(ss -nltp | grep warp | grep -oP '127.0*\S+')"
+T[E84]="Step 2/2: Setting Client Mode"
+T[C84]="进度 2/2： 设置 Client 模式"
+T[E85]="Client was installed.\n connect/disconnect by [warp r].\n uninstall by [warp u]"
+T[C85]="Linux Client 已安装\n 连接/断开: warp r\n 卸载: warp u"
+T[E86]="Client is working. Socks5 proxy listening on: \$(ss -nltp | grep -E 'warp|wireproxy' | grep -oP '127.0*\S+')"
+T[C86]="Linux Client 正常运行中。 Socks5 代理监听:\$(ss -nltp | grep -E 'warp|wireproxy' | grep -oP '127.0*\S+')"
 T[E87]="Fail to establish Socks5 proxy. Feedback: [https://github.com/fscarmen/warp/issues]"
 T[C87]="创建 Socks5 代理失败，问题反馈:[https://github.com/fscarmen/warp/issues]"
 T[E88]="Connect the client"
@@ -190,9 +190,9 @@ T[C89]="断开 Client"
 T[E90]="Client is connected"
 T[C90]="Client 已连接"
 T[E91]="Client is disconnected. It could be connect again by [warp r]"
-T[C91]="已断开 Client ，再次连接可以用 warp r"
-T[E92]="Client is installed already. It could be uninstalled by [warp u]"
-T[C92]="Client 已安装，如要卸载，可以用 warp u"
+T[C91]="已断开 Client，再次连接可以用 warp r"
+T[E92]="(!!! Already installed, do not select.)"
+T[C92]="(!!! 已安装，请勿选择)"
 T[E93]="Client is not installed. It could be installed by [warp c]"
 T[C93]="Client 未安装，如需安装，可以用 warp c"
 T[E94]="Congratulations! WARP\$AC Linux Client is working. Spend time:\$(( end - start )) seconds.\\\n The script runs on today: \$TODAY. Total:\$TOTAL"
@@ -203,18 +203,18 @@ T[E96]="Client connecting failure. It may be a CloudFlare IPv4."
 T[C96]="Client 连接失败，可能是 CloudFlare IPv4."
 T[E97]="It is a WARP+ account already. Update is aborted."
 T[C97]="已经是 WARP+ 账户，不需要升级"
-T[E98]="\n 1. WGCF WARP account\n 2. WARP Linux Client account\n"
-T[C98]="\n 1. WGCF WARP 账户\n 2. WARP Linux Client 账户\n"
-T[E99]="Local Socks5:\$PROXYSOCKS5\\\n WARP\$AC IPv4:\$PROXYIP\\\n \$PROXYCOUNTRY\\\n \$PROXYASNORG"
-T[C99]="本地 Socks5:\$PROXYSOCKS5\\\n WARP\$AC IPv4:\$PROXYIP\\\n \$PROXYCOUNTRY\\\n \$PROXYASNORG"
+T[E98]="Uninstall WirePorxy was complete."
+T[C98]="WirePorxy 卸载成功"
+T[E99]="WireProxy is connected"
+T[C99]="WireProxy 已连接"
 T[E100]="License should be 26 characters, please re-enter WARP+ License. Otherwise press Enter to continue. \(\$i times remaining\): "
 T[C100]="License 应为26位字符,请重新输入 WARP+ License \(剩余\$i次\): "
 T[E101]="Client doesn't support architecture ARM64. The script is aborted. Feedback: [https://github.com/fscarmen/warp/issues]"
 T[C101]="Client 不支持 ARM64，问题反馈:[https://github.com/fscarmen/warp/issues]"
 T[E102]="Please customize the WARP+ device name (Default is [WARP] if left blank):"
 T[C102]="请自定义 WARP+ 设备名 (如果不输入，默认为 [WARP]):"
-T[E103]="Port is in use. Please input another Port\(\$i times remaining\):"
-T[C103]="端口占用中，请使用另一端口\(剩余\$i次\):"
+T[E103]="Port 40000 is in use. Please input another Port\(\$i times remaining\):"
+T[C103]="40000 端口占用中，请使用另一端口\(剩余\$i次\):"
 T[E104]="Please customize the Client port (It must be 4-5 digits. Default to 40000 if it is blank):"
 T[C104]="请自定义 Client 端口号 (必须为4-5位自然数，如果不输入，会默认40000):"
 T[E105]="\n Please choose the priority:\n  1.IPv4 (default)\n  2.IPv6\n  3.Use initial settings\n"
@@ -251,8 +251,8 @@ T[E120]="Uninstall Socks5 Proxy Client was fail."
 T[C120]="Socks5 Proxy Client 卸载失败"
 T[E121]="Changing Netflix IP is adapted from other authors [luoxue-bot],[https://github.com/luoxue-bot/warp_auto_change_ip]"
 T[C121]="更换支持 Netflix IP 改编自 [luoxue-bot] 的成熟作品，地址[https://github.com/luoxue-bot/warp_auto_change_ip]，请熟知"
-T[E122]="WARP interface is not running.The script is aborted. Feedback: [https://github.com/fscarmen/warp/issues]"
-T[C122]="WARP 还没有运行，脚本中止，问题反馈:[https://github.com/fscarmen/warp/issues]"
+T[E122]="Port change to \$PORT succeeded."
+T[C122]="端口成功更换至 \$PORT"
 T[E123]="Change the WARP IP to support Netflix"
 T[C123]="更换支持 Netflix 的 IP"
 T[E124]="It is IPv6 priority now, press [y] to change to IPv4 priority? And other keys for unchanging:"
@@ -293,8 +293,8 @@ T[E141]="Switch \${WARP_BEFORE[m]} to \${WARP_AFTER1[m]}"
 T[C141]="\${WARP_BEFORE[m]} 转为 \${WARP_AFTER1[m]}"
 T[E142]="Switch \${WARP_BEFORE[m]} to \${WARP_AFTER2[m]}"
 T[C142]="\${WARP_BEFORE[m]} 转为 \${WARP_AFTER2[m]}"
-T[E143]="Change Client port"
-T[C143]="更改 Client 端口"
+T[E143]="Change Client or WireProxy port"
+T[C143]="更改 Client 或 WireProxy 端口"
 T[E144]="Install WARP IPv6 interface"
 T[C144]="安装 WARP IPv6 网络接口"
 T[E145]="\\\n WARP ineterface can be switched to the following:\\\n 1. \$OPTION1\\\n 2. \$OPTION2\\\n 0. \${T[\${L}76]}\\\n"
@@ -303,6 +303,50 @@ T[E146]="Cannot switch to the same form as the current one."
 T[C146]="不能切换为当前一样的形态"
 T[E147]="Not available for IPv6 only VPS"
 T[C147]="IPv6 only VPS 不能使用此方案"
+T[E148]="Install wireproxy. Wireguard client that exposes itself as a socks5 proxy or tunnels"
+T[C148]="安装 wireproxy，让 WARP 在本地创建一个 socks5 代理"
+T[E149]="Congratulations! WirePorxy is working. Spend time:\$(( end - start )) seconds.\\\n The script runs on today: \$TODAY. Total:\$TOTAL"
+T[C149]="恭喜！WirePorxy 工作中, 总耗时:\$(( end - start ))秒， 脚本当天运行次数:\$TODAY，累计运行次数：\$TOTAL"
+T[E150]="\n WGCF WARP, WARP Linux Client, WireProxy hasn't been installed yet. The script is aborted.\n"
+T[C150]="\n WGCF WARP, WARP Linux Client 和 WireProxy 均未安装，脚本退出\n"
+T[E151]="\n 1. WARP Linux Client account\n 2. WireProxy account\n"
+T[C151]="\n 1. WARP Linux Client 账户\n 2. WireProxy 账户\n"
+T[E152]="\n 1. WGCF WARP account\n 2. WireProxy account\n"
+T[C152]="\n 1. WGCF WARP 账户\n 2. WireProxy 账户\n"
+T[E153]="\n 1. WGCF WARP account\n 2. WARP Linux Client account\n"
+T[C153]="\n 1. WGCF WARP 账户\n 2. WARP Linux Client 账户\n"
+T[E154]="\n 1. WGCF WARP account\n 2. WARP Linux Client account\n 3. WireProxy account\n"
+T[C154]="\n 1. WGCF WARP 账户\n 2. WARP Linux Client 账户\n 3. WireProxy 账户\n"
+T[E155]="WGCF WARP has not been installed yet."
+T[C155]="WGCF WARP 还未安装"
+T[E156]="Socks5 Proxy Client has not been installed yet."
+T[C156]="Socks5 Proxy 客户端还未安装"
+T[E157]="WireProxy has not been installed yet."
+T[C157]="WireProxy 还未安装"
+T[E158]="WireProxy is disconnected. It could be connect again by [warp y]"
+T[C158]="已断开 WirePorxy，再次连接可以用 warp y"
+T[E159]="WireProxy is on"
+T[C159]="WireProxy 已开启"
+T[E160]="WireProxy is not installed."
+T[C160]="WireProxy 未安装"
+T[E161]="WireProxy is installed and disconnected"
+T[C161]="WireProxy 已安装，状态为断开连接"
+T[E162]="Local Socks5:\$PROXYSOCKS52	WARP\$AC2 IPv4:\$PROXYIP2 \$PROXYCOUNTRY2	\$PROXYASNORG2"
+T[C162]="本地 Socks5:\$PROXYSOCKS52	WARP\$AC2 IPv4:\$PROXYIP2 \$PROXYCOUNTRY2	\$PROXYASNORG2"
+T[E163]="Connect the WirePorxy"
+T[C163]="连接 WirePorxy"
+T[E164]="Disconnect the WirePorxy"
+T[C164]="断开 WirePorxy"
+T[E165]="WireProxy Solution. A wireguard client that exposes itself as a socks5 proxy or tunnels. Adapted from the mature works of [octeep],[https://github.com/octeep/wireproxy]"
+T[C165]="WireProxy，让 WARP 在本地建议一个 socks5 代理。改编自 [octeep] 的成熟作品，地址[https://github.com/octeep/wireproxy]，请熟知"
+T[E166]="WireProxy was installed.\n connect/disconnect by [warp y]\n uninstall by [warp u]"
+T[C166]="WireProxy 已安装\n 连接/断开: warp y\n 卸载: warp u"
+T[E167]="WARP iptable was installed.\n connect/disconnect by [warp o]\n uninstall by [warp u]"
+T[C167]="WARP iptable 已安装\n 连接/断开: warp o\n 卸载: warp u"
+T[E168]="Install CloudFlare Client and set mode to WARP"
+T[C168]="安装 CloudFlare Client 并设置为 WARP 模式"
+T[E169]="WARP\$AC IPv4：\$WAN4 \$WARPSTATUS4 \$COUNTRY4  \$ASNORG4"
+T[C169]="WARP\$AC IPv4：\$WAN4 \$WARPSTATUS4 \$COUNTRY4  \$ASNORG4"
 
 # 自定义字体彩色，read 函数，友道翻译函数
 red(){ echo -e "\033[31m\033[01m$1\033[0m"; }
@@ -321,7 +365,7 @@ TODAY=$(expr "$COUNT" : '.*\s\([0-9]\{1,\}\)\s/.*') && TOTAL=$(expr "$COUNT" : '
 select_language(){
 	case $(cat /etc/wireguard/language 2>&1) in
 	E ) L=E;;	C ) L=C;;
-	* ) L=E && [[ -z $OPTION || $OPTION = [acehdpbvis46] ]] && yellow " ${T[${L}0]} " && reading " ${T[${L}50]} " LANGUAGE 
+	* ) L=E && [[ -z $OPTION || $OPTION = [aclehdpbvisw46] ]] && yellow " ${T[${L}0]} " && reading " ${T[${L}50]} " LANGUAGE 
 	[[ $LANGUAGE = 2 ]] && L=C;;
 	esac
 	}
@@ -387,14 +431,14 @@ check_dependencies(){
 # 检测 IPv4 IPv6 信息，WARP Ineterface 开启，普通还是 Plus账户 和 IP 信息
 ip4_info(){
 	unset IP4 LAN4 COUNTRY4 ASNORG4 TRACE4 PLUS4 WARPSTATUS4
-	IP4=$(curl -ks4m8 https://ip.gs/json)
+	IP4=$(curl -ks4m8 https://ip.gs/json $INTERFACE)
 	LAN4=$(ip route get 162.159.193.10 2>/dev/null | grep -oP 'src \K\S+')
 	WAN4=$(expr "$IP4" : '.*ip\":\"\([^"]*\).*')
 	COUNTRY4=$(expr "$IP4" : '.*country\":\"\([^"]*\).*')
 	ASNORG4=$(expr "$IP4" : '.*asn_org\":\"\([^"]*\).*')
 	TRACE4=$(curl -ks4m8 https://www.cloudflare.com/cdn-cgi/trace | grep warp | sed "s/warp=//g")
 	if [[ $TRACE4 = plus ]]; then
-	grep -sq 'Device name' /etc/wireguard/info.log && PLUS4='+' || PLUS4=' Teams'
+		grep -sq 'Device name' /etc/wireguard/info.log && PLUS4='+' || PLUS4=' Teams'
 	fi
 	[[ $TRACE4 =~ on|plus ]] && WARPSTATUS4="( WARP$PLUS4 IPv4 )"
 	}
@@ -408,25 +452,43 @@ ip6_info(){
 	ASNORG6=$(expr "$IP6" : '.*asn_org\":\"\([^"]*\).*')
 	TRACE6=$(curl -ks6m8 https://www.cloudflare.com/cdn-cgi/trace | grep warp | sed "s/warp=//g")
 	if [[ $TRACE6 = plus ]]; then
-	grep -sq 'Device name' /etc/wireguard/info.log && PLUS6='+' || PLUS6=' Teams'
+		grep -sq 'Device name' /etc/wireguard/info.log && PLUS6='+' || PLUS6=' Teams'
 	fi
 	[[ $TRACE6 =~ on|plus ]] && WARPSTATUS6="( WARP$PLUS6 IPv6 )"
 	}
 
 # 检测 Client 是否开启，普通还是 Plus账户 和 IP 信息
 proxy_info(){
-	unset PROXYSOCKS5 PROXYJASON PROXYIP PROXYCOUNTR PROXYASNORG ACCOUNT QUOTA AC
-	PROXYSOCKS5=$(ss -nltp | grep warp | grep -oP '127.0*\S+')
-	PROXYJASON=$(curl -ks4m7 --socks5 "$PROXYSOCKS5" https://ip.gs/json)
+	unset PROXYSOCKS5 PROXYPORT PROXYJASON PROXYIP PROXYCOUNTR PROXYASNORG ACCOUNT QUOTA AC PROXYSOCKS52 PROXYPORT2 PROXYJASON2 PROXYIP2 PROXYCOUNTR2 PROXYASNORG2 ACCOUNT2 AC2 TRACE42
+
+	if type -P warp-cli >/dev/null 2>&1; then
+	PROXYSOCKS5=$(ss -nltp | grep 'warp' | grep -oP '127.0*\S+')
+	PROXYPORT=$(echo $PROXYSOCKS5 | cut -d: -f2)
+	PROXYJASON=$(curl -sx socks5h://localhost:$PROXYPORT https://ip.gs/json)
 	PROXYIP=$(expr "$PROXYJASON" : '.*ip\":\"\([^"]*\).*')
 	PROXYCOUNTRY=$(expr "$PROXYJASON" : '.*country\":\"\([^"]*\).*')
 	[[ $L = C ]] && PROXYCOUNTRY=$(translate "$PROXYCOUNTRY")
 	PROXYASNORG=$(expr "$PROXYJASON" : '.*asn_org\":\"\([^"]*\).*')
 	ACCOUNT=$(warp-cli --accept-tos account 2>/dev/null)
-	if [[ $ACCOUNT =~ 'Limited' ]]; then
-	QUOTA=$(expr "$ACCOUNT" : '.*Quota:\s\([0-9]\{1,\}\)\s.*')
-	[[ $QUOTA -gt 10000000000000 ]] && QUOTA="$((QUOTA/1000000000000)) TiB" ||  QUOTA="$((QUOTA/1000000000)) GiB"
-	AC='+'
+		if [[ $ACCOUNT =~ 'Limited' ]]; then
+			QUOTA=$(expr "$ACCOUNT" : '.*Quota:\s\([0-9]\{1,\}\)\s.*')
+			[[ $QUOTA -gt 10000000000000 ]] && QUOTA="$((QUOTA/1000000000000)) TiB" ||  QUOTA="$((QUOTA/1000000000)) GiB"
+			AC='+'
+		fi
+	fi
+
+	if type -P wireproxy >/dev/null 2>&1; then
+	PROXYSOCKS52=$(ss -nltp | grep 'wireproxy' | grep -oP '127.0*\S+')
+	PROXYPORT2=$(echo $PROXYSOCKS52 | cut -d: -f2)
+	PROXYJASON2=$(curl -sx socks5h://localhost:$PROXYPORT2 https://ip.gs/json)
+	PROXYIP2=$(expr "$PROXYJASON2" : '.*ip\":\"\([^"]*\).*')
+	PROXYCOUNTRY2=$(expr "$PROXYJASON2" : '.*country\":\"\([^"]*\).*')
+	[[ $L = C ]] && PROXYCOUNTRY2=$(translate "$PROXYCOUNTRY2")
+	PROXYASNORG2=$(expr "$PROXYJASON2" : '.*asn_org\":\"\([^"]*\).*')
+	TRACE42=$(eval echo "\$(curl -sx socks5h://localhost:$(ss -nltp | grep wireproxy | grep -oP '127.0*\S+' | cut -d: -f2) https://www.cloudflare.com/cdn-cgi/trace)")
+		if [[ $TRACE42 =~ plus ]]; then
+			grep -sq 'Device name' /etc/wireguard/info.log && AC2='+' || AC2=' Teams'
+		fi
 	fi
 	}
 
@@ -482,8 +544,9 @@ stack_priority(){
 
 # 更换 Netflix IP 时确认期望区域
 input_region(){
-	[[ -n $NF ]] && REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -$NF -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g')) ||
-	REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -ks4m7 --socks5 "$PROXYSOCKS5" -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
+	[[ -n "$NF" ]] && REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -$NF -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g')) ||
+	[[ -n "$PROXYPORT" ]] && REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -sx socks5h://localhost:$PROXYPORT -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
+	[[ -n "$INTERFACE" ]] && REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" $INTERFACE -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
 	REGION=${REGION:-'US'}
 	reading " $(eval echo "${T[${L}56]}") " EXPECT
 	until [[ -z $EXPECT || $EXPECT = [Yy] || $EXPECT =~ ^[A-Za-z]{2}$ ]]; do
@@ -500,50 +563,110 @@ change_ip(){
 		grep -q "^#.*0\.\0\/0" /etc/wireguard/wgcf.conf && T4=0 || T4=1
 		grep -q "^#.*\:\:\/0" /etc/wireguard/wgcf.conf && T6=0 || T6=1
 		case "$T4$T6" in
-		01 ) NF='6';;	10 ) NF='4';;
-		11 ) [[ $(curl -ksm8 https://ip.gs) =~ ":" ]] && NF='6' && reading " ${T[${L}124]} " NETFLIX || NF='4'
-		[[ $NETFLIX = [Yy] ]] && NF='4' && PRIORITY=1 && stack_priority;;
+			01 ) NF='6';;	10 ) NF='4';;
+			11 ) [[ $(curl -ksm8 https://ip.gs) =~ ":" ]] && NF='6' && reading " ${T[${L}124]} " NETFLIX || NF='4'
+			[[ $NETFLIX = [Yy] ]] && NF='4' && PRIORITY=1 && stack_priority;;
 		esac
 
-	[[ -z "$EXPECT" ]] && input_region
-	i=0;j=5
-	while true
-	do (( i++ )) || true
-	ip_now=$(date +%s); RUNTIME=$((ip_now - ip_start)); DAY=$(( RUNTIME / 86400 )); HOUR=$(( (RUNTIME % 86400 ) / 3600 )); MIN=$(( (RUNTIME % 86400 % 3600) / 60 )); SEC=$(( RUNTIME % 86400 % 3600 % 60 ))
-	ip${NF}_info
-	WAN=$(eval echo \$WAN$NF) && ASNORG=$(eval echo \$ASNORG$NF)
-	[[ $L = C ]] && COUNTRY=$(translate "$(eval echo \$COUNTRY$NF)") || COUNTRY=$(eval echo \$COUNTRY$NF)
-	RESULT=$(curl --user-agent "${UA_Browser}" -$NF -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/$RESULT_TITLE"  2>&1)
-	if [[ $RESULT = 200 ]]; then
-	REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -"$NF" -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
-	REGION=${REGION:-'US'}
-	echo "$REGION" | grep -qi "$EXPECT" && green " $(eval echo "${T[${L}125]}") " && i=0 && sleep 1h || wgcf_restart
-	else wgcf_restart
-	fi
-	done
-	}
+		[[ -z "$EXPECT" ]] && input_region
+		i=0; j=5
+		while true
+		do (( i++ )) || true
+		ip_now=$(date +%s); RUNTIME=$((ip_now - ip_start)); DAY=$(( RUNTIME / 86400 )); HOUR=$(( (RUNTIME % 86400 ) / 3600 )); MIN=$(( (RUNTIME % 86400 % 3600) / 60 )); SEC=$(( RUNTIME % 86400 % 3600 % 60 ))
+		ip${NF}_info
+		WAN=$(eval echo \$WAN$NF) && ASNORG=$(eval echo \$ASNORG$NF)
+		[[ $L = C ]] && COUNTRY=$(translate "$(eval echo \$COUNTRY$NF)") || COUNTRY=$(eval echo \$COUNTRY$NF)
+		RESULT=$(curl --user-agent "${UA_Browser}" -$NF -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/$RESULT_TITLE"  2>&1)
+		if [[ $RESULT = 200 ]]; then
+		REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -"$NF" -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
+		REGION=${REGION:-'US'}
+		echo "$REGION" | grep -qi "$EXPECT" && green " $(eval echo "${T[${L}125]}") " && i=0 && sleep 1h || wgcf_restart
+		else wgcf_restart
+		fi
+		done
+		}
 
-change_socks5(){
-	socks5_restart(){
-	red " $(eval echo "${T[${L}126]}") " && warp-cli --accept-tos delete >/dev/null 2>&1 && warp-cli --accept-tos register >/dev/null 2>&1 && sleep $j &&
-	[[ -e /etc/wireguard/license ]] && warp-cli --accept-tos set-license $(cat /etc/wireguard/license) >/dev/null 2>&1 && sleep 2; }
-	PROXYSOCKS5="$(ss -nltp | grep warp | grep -oP '127.0*\S+')"
-	[[ -z "$EXPECT" ]] && input_region
-	i=0; [[ -e /etc/wireguard/license ]] && j=13 || j=15
-	while true
-	do (( i++ )) || true
-	ip_now=$(date +%s); RUNTIME=$((ip_now - ip_start)); DAY=$(( RUNTIME / 86400 )); HOUR=$(( (RUNTIME % 86400 ) / 3600 )); MIN=$(( (RUNTIME % 86400 % 3600) / 60 )); SEC=$(( RUNTIME % 86400 % 3600 % 60 ))
-	proxy_info
-	WAN=$PROXYIP && ASNORG=$PROXYASNORG && NF=4 && COUNTRY=$PROXYCOUNTRY
-	RESULT=$(curl --user-agent "${UA_Browser}" -ks4m7 --socks5 "$PROXYSOCKS5" -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/$RESULT_TITLE"  2>&1)
-	if [[ $RESULT = 200 ]]; then
-	REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -ks4m7 --socks5 "$PROXYSOCKS5" -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
-	REGION=${REGION:-'US'}
-	echo "$REGION" | grep -qi "$EXPECT" && green " $(eval echo "${T[${L}125]}") " && i=0 && sleep 1h || socks5_restart
-	else socks5_restart
-	fi
-	done
-	}
+	change_client(){
+		if [[ $(warp-cli --accept-tos settings) =~ WarpProxy ]]; then
+			socks5_restart(){
+				red " $(eval echo "${T[${L}126]}") " && warp-cli --accept-tos delete >/dev/null 2>&1 && warp-cli --accept-tos register >/dev/null 2>&1 && sleep $j &&
+				[[ -e /etc/wireguard/license ]] && warp-cli --accept-tos set-license $(cat /etc/wireguard/license) >/dev/null 2>&1 && sleep 2
+				}
+
+			PROXYPORT="$(ss -nltp | grep 'warp' | grep -oP '127.0*\S+' | cut -d: -f2)"
+			[[ -z "$EXPECT" ]] && input_region
+			i=0; [[ -e /etc/wireguard/license ]] && j=13 || j=15
+			while true
+			do (( i++ )) || true
+			ip_now=$(date +%s); RUNTIME=$((ip_now - ip_start)); DAY=$(( RUNTIME / 86400 )); HOUR=$(( (RUNTIME % 86400 ) / 3600 )); MIN=$(( (RUNTIME % 86400 % 3600) / 60 )); SEC=$(( RUNTIME % 86400 % 3600 % 60 ))
+			proxy_info
+			WAN=$PROXYIP && ASNORG=$PROXYASNORG && NF=4 && COUNTRY=$PROXYCOUNTRY
+			RESULT=$(curl --user-agent "${UA_Browser}" -sx socks5h://localhost:$PROXYPORT -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/$RESULT_TITLE"  2>&1)
+			if [[ $RESULT = 200 ]]; then
+				REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -sx socks5h://localhost:$PROXYPORT -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
+				REGION=${REGION:-'US'}
+				echo "$REGION" | grep -qi "$EXPECT" && green " $(eval echo "${T[${L}125]}") " && i=0 && sleep 1h || socks5_restart
+			else socks5_restart
+			fi
+			done
+
+		else	interface_restart(){
+				red " $(eval echo "${T[${L}126]}") " &&	warp-cli --accept-tos delete >/dev/null 2>&1 && warp-cli --accept-tos register >/dev/null 2>&1 &&
+				[[ -e /etc/wireguard/license ]] && warp-cli --accept-tos set-license $(cat /etc/wireguard/license) >/dev/null 2>&1 && sleep 2
+				warp-cli --accept-tos disconnect >/dev/null 2>&1
+				warp-cli --accept-tos disable-always-on >/dev/null 2>&1
+				ip -4 rule delete from 172.16.0.2 lookup 51820
+				ip -4 rule delete table main suppress_prefixlength 0
+				sleep 2
+				warp-cli --accept-tos connect >/dev/null 2>&1
+				warp-cli --accept-tos enable-always-on >/dev/null 2>&1
+				sleep 6
+				ip -4 rule add from 172.16.0.2 lookup 51820
+				ip -4 route add default dev CloudflareWARP table 51820
+				ip -4 rule add table main suppress_prefixlength 0
+				}
+			
+			INTERFACE='--interface CloudflareWARP'
+			[[ -z "$EXPECT" ]] && input_region
+			i=0; j=10
+			while true
+			do (( i++ )) || true
+			ip_now=$(date +%s); RUNTIME=$((ip_now - ip_start)); DAY=$(( RUNTIME / 86400 )); HOUR=$(( (RUNTIME % 86400 ) / 3600 )); MIN=$(( (RUNTIME % 86400 % 3600) / 60 )); SEC=$(( RUNTIME % 86400 % 3600 % 60 ))
+			ip4_info
+			WAN=$WAN4 && ASNORG=$ASNORG4
+			[[ $L = C ]] && COUNTRY=$(translate "$COUNTRY4") || COUNTRY=$COUNTRY4
+			RESULT=$(curl --user-agent "${UA_Browser}" $INTERFACE -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/$RESULT_TITLE"  2>&1)
+			if [[ $RESULT = 200 ]]; then
+				REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" $INTERFACE -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
+				REGION=${REGION:-'US'}
+				echo "$REGION" | grep -qi "$EXPECT" && green " $(eval echo "${T[${L}125]}") " && i=0 && sleep 1h || interface_restart
+			else interface_restart
+			fi
+			done
+
+		fi
+		}
+
+	change_wireproxy(){
+		wireproxy_restart(){ red " $(eval echo "${T[${L}126]}") " && systemctl restart wireproxy; sleep $j; }
+
+		PROXYPORT="$(ss -nltp | grep 'wireproxy' | grep -oP '127.0*\S+' | cut -d: -f2)"
+		[[ -z "$EXPECT" ]] && input_region
+		i=0; j=5
+		while true
+		do (( i++ )) || true
+		ip_now=$(date +%s); RUNTIME=$((ip_now - ip_start)); DAY=$(( RUNTIME / 86400 )); HOUR=$(( (RUNTIME % 86400 ) / 3600 )); MIN=$(( (RUNTIME % 86400 % 3600) / 60 )); SEC=$(( RUNTIME % 86400 % 3600 % 60 ))
+		proxy_info
+		WAN=$PROXYIP2 && ASNORG=$PROXYASNORG2 && COUNTRY=$PROXYCOUNTRY2
+		RESULT=$(curl --user-agent "${UA_Browser}" -sx socks5h://localhost:$PROXYPORT -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/$RESULT_TITLE"  2>&1)
+		if [[ $RESULT = 200 ]]; then
+			REGION=$(tr '[:lower:]' '[:upper:]' <<< $(curl --user-agent "${UA_Browser}" -sx socks5h://localhost:$PROXYPORT -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/$REGION_TITLE" | sed 's/.*com\/\([^-/]\{1,\}\).*/\1/g'))
+			REGION=${REGION:-'US'}
+			echo "$REGION" | grep -qi "$EXPECT" && green " $(eval echo "${T[${L}125]}") " && i=0 && sleep 1h || wireproxy_restart
+		else wireproxy_restart
+		fi
+		done
+		}
 
 	# 设置时区，让时间戳时间准确，显示脚本运行时长，中文为 GMT+8，英文为 UTC; 设置 UA
 	ip_start=$(date +%s)
@@ -556,28 +679,31 @@ change_socks5(){
 	REGION_TITLE=$(echo "$LMC999" | grep "region.*netflix.com/title/" | sed "s/.*title\/\([^\"]*\).*/\1/")
 	RESULT_TITLE=${RESULT_TITLE:-'81215567'}; REGION_TITLE=${REGION_TITLE:-'80018499'}
 
-	# 判断刷 IP 时 WGCF 和 Client 的状态，分情况处理
-	WGCFSTATUS=0; SOCKS5STATUS=0
-	yellow " ${T[${L}121]} "
-	if [[ -z $(wg 2>/dev/null) ]]; then
-	type -P wg-quick >/dev/null 2>&1 && wg-quick up wgcf >/dev/null 2>&1 && WGCFSTATUS=1
-	else WGCFSTATUS=1
-	fi
+	# 根据 WARP interface 、 Client 和 WirePorxy 的安装情况判断刷 IP 的方式
+	INSTALL_CHECK=("wg-quick" "warp-cli" "wireproxy")
+	CASE_RESAULT=("0 0 0"		"0 0 1"			"0 1 0"			"0 1 1"			"1 0 0"			"1 0 1"			"1 1 0"			"1 1 1")
+	SHOW_CHOOSE=("${T[${L}150]}"	""			""			"${T[${L}151]}"		""			"${T[${L}152]}"		"${T[${L}153]}"		"${T[${L}154]}")
+	CHANGE_IP1=(""			"change_wireproxy"	"change_client"		"change_client"		"change_wgcf"		"change_wgcf"		"change_wgcf"		"change_wgcf")
+	CHANGE_IP2=(""			"" 			"" 			"change_wireproxy" 	""			"change_wireproxy" 	"change_client" 	"change_client")
+	CHANGE_IP3=(""			"" 			""			""			""			""			""			"change_wireproxy")
 
-	if [[ ! $(ss -nltp) =~ 'warp-svc' ]]; then
-	type -P warp-cli >/dev/null 2>&1 && warp-cli --accept-tos register >/dev/null 2>&1 && SOCKS5STATUS=1 && [[ -e /etc/wireguard/license ]] && warp-cli --accept-tos set-license $(cat /etc/wireguard/license)>/dev/null 2>&1
-	else SOCKS5STATUS=1
-	fi
+	for ((a=0; a<${#INSTALL_CHECK[@]}; a++)); do
+		type -P ${INSTALL_CHECK[a]} >/dev/null 2>&1 && INSTALL_RESULT[a]=1 || INSTALL_RESULT[a]=0
+	done
 
-	case $WGCFSTATUS$SOCKS5STATUS in
-	01 ) change_socks5;;
-	10 ) change_wgcf;;
-	11 ) yellow " ${T[${L}108]} " && reading " ${T[${L}50]} " CHOOSESTATUS
-		case "$CHOOSESTATUS" in
-		1 ) change_socks5;;	2 ) change_wgcf;;	* ) red " ${T[${L}51]} [1-2]"; change_ip;;
+	for ((b=0; b<${#CASE_RESAULT[@]}; b++)); do
+		[[ ${INSTALL_RESULT[@]} = "${CASE_RESAULT[b]}" ]] && break
+	done
+
+	case "$b" in
+	0 ) red " ${T[${L}150]} " && exit 1;;
+	1|2|4 ) ${CHANGE_IP1[b]};;
+	* ) yellow " ${SHOW_CHOOSE[b]} " && reading " ${T[${L}50]} " MODE
+		case "$MODE" in
+		[1-3] ) $(eval echo "\${CHANGE_IP$MODE[b]}");;
+		* ) red " ${T[${L}51]} [1-3] "; sleep 1; change_ip;;
 		esac;;
-	00 ) red " ${T[${L}122]} " && exit;;
-	esac	
+	esac
 	}
 
 # 安装BBR
@@ -606,7 +732,7 @@ uninstall(){
 	${PACKAGE_UNINSTALL[int]} wireguard-tools openresolv 2>/dev/null
 	rpm -e wireguard-tools 2>/dev/null
 	[[ $(systemctl is-active systemd-resolved) != active ]] && systemctl enable --now systemd-resolved >/dev/null 2>&1
-	rm -rf /usr/local/bin/wgcf /etc/wireguard /usr/bin/wireguard-go wgcf-account.toml wgcf-profile.conf /usr/bin/warp /etc/dnsmasq.d/warp.conf
+	rm -rf /usr/bin/wgcf /etc/wireguard /usr/bin/wireguard-go wgcf-account.toml wgcf-profile.conf /usr/bin/warp /etc/dnsmasq.d/warp.conf /usr/bin/wireproxy
 	[[ -e /etc/gai.conf ]] && sed -i '/^precedence \:\:ffff\:0\:0/d;/^label 2002\:\:\/16/d' /etc/gai.conf
 	[[ -e /usr/bin/tun.sh ]] && rm -f /usr/bin/tun.sh && sed -i '/tun.sh/d' /etc/crontab
 	sed -i "/250   warp/d" /etc/iproute2/rt_tables
@@ -617,14 +743,33 @@ uninstall(){
 	warp-cli --accept-tos disconnect >/dev/null 2>&1
 	warp-cli --accept-tos disable-always-on >/dev/null 2>&1
 	warp-cli --accept-tos delete >/dev/null 2>&1
+	ip -4 rule delete from 172.16.0.2/32 lookup 51820 >/dev/nulll 2>&1
+	ip -4 rule delete table main suppress_prefixlength 0 >/dev/nulll 2>&1
 	${PACKAGE_UNINSTALL[int]} cloudflare-warp 2>/dev/null
 	systemctl disable --now warp-svc >/dev/null 2>&1
-	rm -rf /usr/local/bin/wgcf /etc/wireguard /usr/bin/wireguard-go wgcf-account.toml wgcf-profile.conf /usr/bin/warp
+	rm -rf /usr/bin/wgcf /etc/wireguard /usr/bin/wireguard-go wgcf-account.toml wgcf-profile.conf /usr/bin/warp
 	}
 	
+	# 卸载 WirePorxy
+ 	uninstall_wireproxy(){
+	systemctl disable --now wireproxy
+	[[ $SYSTEM != "Arch" ]] && ${PACKAGE_UNINSTALL[int]} wireguard-dkms resolvconf 2>/dev/null
+	${PACKAGE_UNINSTALL[int]} openresolv 2>/dev/null
+	rm -rf /usr/bin/wgcf /etc/wireguard /usr/bin/wireguard-go wgcf-account.toml wgcf-profile.conf /usr/bin/warp /etc/dnsmasq.d/warp.conf /usr/bin/wireproxy /lib/systemd/system/wireproxy.service
+	[[ -e /etc/gai.conf ]] && sed -i '/^precedence \:\:ffff\:0\:0/d;/^label 2002\:\:\/16/d' /etc/gai.conf
+	[[ -e /usr/bin/tun.sh ]] && rm -f /usr/bin/tun.sh && sed -i '/tun.sh/d' /etc/crontab
+	}
+	
+	# 如已安装 warp_unlock 项目，先行卸载
+	[[ -e /etc/wireguard/warp_unlock.sh ]] && bash <(curl -sSL https://raw.githubusercontent.com/fscarmen/warp_unlock/main/unlock.sh) -U -$L
+	
 	# 根据已安装情况执行卸载任务并显示结果
-	[[ $(type -P wg-quick) ]] && (uninstall_wgcf; green " ${T[${L}117]} ")
-	[[ $(type -P warp-cli) ]] && (uninstall_proxy; green " ${T[${L}119]} ")
+	UNINSTALL_CHECK=("wg-quick"		"warp-cli"		"wireproxy")
+	UNINSTALL_DO=("uninstall_wgcf"		"uninstall_proxy"	"uninstall_wireproxy")
+	UNINSTALL_RESULT=("${T[${L}117]}"	"${T[${L}119]}"		"${T[${L}98]}")
+	for ((i=0; i<${#UNINSTALL_CHECK}; i++)); do
+		type -P ${UNINSTALL_CHECK[i]} >/dev/null 2>&1 && (${UNINSTALL_DO[i]}; green " ${UNINSTALL_RESULT[i]} ")
+	done
 
 	# 显示卸载结果
 	ip4_info; [[ $L = C && -n "$COUNTRY4" ]] && COUNTRY4=$(translate "$COUNTRY4")
@@ -674,23 +819,68 @@ net(){
 	[[ $OPTION = [on] ]] && green " IPv4:$WAN4 $WARPSTATUS4 $COUNTRY4 $ASNORG4\n IPv6:$WAN6 $WARPSTATUS6 $COUNTRY6 $ASNORG6 "
 	}
 
-# WARP 开关
-onoff(){ [[ -n $(wg 2>/dev/null) ]] && (wg-quick down wgcf >/dev/null 2>&1; green " ${T[${L}15]} ") || net; }
+# WARP 开关，先检查是否已安装，再根据当前状态转向相反状态
+onoff(){ 
+	! type -P wg-quick >/dev/null 2>&1 && red " ${T[${L}155]} " && exit 1
+	[[ -n $(wg 2>/dev/null) ]] && (wg-quick down wgcf >/dev/null 2>&1; green " ${T[${L}15]} ") || net
+	}
 
-# PROXY 开关
+# Proxy 开关，先检查是否已安装，再根据当前状态转向相反状态
 proxy_onoff(){
-	PROXY=$(warp-cli --accept-tos status 2>/dev/null)
-	case "$PROXY" in
-	*Connecting* ) red " ${T[${L}96]} " && exit 1;;
-	*missing* ) warp-cli --accept-tos register >/dev/null 2>&1 && [[ -e /etc/wireguard/license ]] && warp-cli --accept-tos set-license $(cat /etc/wireguard/license)>/dev/null 2>&1;;
-	*Connected* ) warp-cli --accept-tos disconnect >/dev/null 2>&1 && warp-cli --accept-tos disable-always-on >/dev/null 2>&1 && [[ ! $(ss -nltp) =~ 'warp-svc' ]] && green " ${T[${L}91]} " && exit 0;;
-	*Disconnected* ) warp-cli --accept-tos connect >/dev/null 2>&1 && warp-cli --accept-tos enable-always-on >/dev/null 2>&1 && STATUS=1 && sleep 1 && proxy_info
-		if [[ $STATUS = 1 ]]; then
-		[[ $(ss -nltp) =~ 'warp-svc' ]] && green " ${T[${L}90]}\n $(eval echo "${T[${L}99]}") " && exit 0
-		[[ $(warp-cli --accept-tos status 2>/dev/null) =~ Connecting ]] && red " ${T[${L}96]} " && exit 1
-		fi;;
-	* ) red " ${T[${L}93]} " && exit 1;;
-	esac
+	! type -P warp-cli >/dev/null 2>&1 && red " ${T[${L}156]} " && exit 1
+	if [[ $(warp-cli --accept-tos settings) =~ WarpProxy ]]; then
+		PROXY=$(warp-cli --accept-tos status 2>/dev/null)
+		case "$PROXY" in
+		*Connecting* ) red " ${T[${L}96]} " && exit 1;;
+		*missing* ) warp-cli --accept-tos register >/dev/null 2>&1 && [[ -e /etc/wireguard/license ]] && warp-cli --accept-tos set-license $(cat /etc/wireguard/license)>/dev/null 2>&1;;
+		*Connected* ) warp-cli --accept-tos disconnect >/dev/null 2>&1 && warp-cli --accept-tos disable-always-on >/dev/null 2>&1 && [[ ! $(ss -nltp) =~ 'warp-svc' ]] && green " ${T[${L}91]} " && exit 0;;
+		*Disconnected* ) warp-cli --accept-tos connect >/dev/null 2>&1 && warp-cli --accept-tos enable-always-on >/dev/null 2>&1 && STATUS=1 && sleep 1 && proxy_info
+			if [[ $STATUS = 1 ]]; then
+				[[ $(ss -nltp) =~ 'warp-svc' ]] && green " ${T[${L}90]}\n $(eval echo "${T[${L}27]}") " && exit 0
+				[[ $(warp-cli --accept-tos status 2>/dev/null) =~ Connecting ]] && red " ${T[${L}96]} " && exit 1
+			fi;;
+		* ) red " ${T[${L}93]} " && exit 1;;
+		esac
+	
+	else	if [[ $(ip a) =~ 'CloudflareWARP' ]]; then
+			warp-cli --accept-tos disconnect >/dev/null 2>&1
+			warp-cli --accept-tos disable-always-on >/dev/null 2>&1
+			ip -4 rule delete from 172.16.0.2 lookup 51820
+			ip -4 rule delete table main suppress_prefixlength 0
+			green " ${T[${L}91]} " && exit 0
+		else
+			warp-cli --accept-tos connect >/dev/null 2>&1
+			warp-cli --accept-tos enable-always-on >/dev/null 2>&1
+			sleep 5
+			ip -4 rule add from 172.16.0.2 lookup 51820
+			ip -4 route add default dev CloudflareWARP table 51820
+			ip -4 rule add table main suppress_prefixlength 0
+			INTERFACE='--interface CloudflareWARP'
+			ip4_info; [[ $L = C && -n "$COUNTRY4" ]] && COUNTRY4=$(translate "$COUNTRY4")
+			ACCOUNT=$(warp-cli --accept-tos account 2>/dev/null)
+			if [[ $ACCOUNT =~ 'Limited' ]]; then
+			QUOTA=$(expr "$ACCOUNT" : '.*Quota:\s\([0-9]\{1,\}\)\s.*')
+			[[ $QUOTA -gt 10000000000000 ]] && QUOTA="$((QUOTA/1000000000000)) TiB" ||  QUOTA="$((QUOTA/1000000000)) GiB"
+			AC='+'
+			fi
+			[[ $(ip a) =~ 'CloudflareWARP' ]] && green " ${T[${L}90]} $(eval echo "${T[${L}169]}") "
+			[[ $ACCOUNT =~ 'Limited' ]] && green " ${T[${L}63]}：$QUOTA "
+			exit 0
+		fi
+	fi
+	}
+
+# WireProxy 开关，先检查是否已安装，再根据当前状态转向相反状态
+wireproxy_onoff(){
+	! type -P wireproxy >/dev/null 2>&1 && red " ${T[${L}157]} " && exit 1 || OCTEEP=1
+	if ss -nltp | grep wireproxy >/dev/null 2>&1; then
+		systemctl stop wireproxy
+		[[ ! $(ss -nltp) =~ 'wireproxy' ]] && green " ${T[${L}158]} "
+
+	else systemctl start wireproxy
+		sleep 1 && proxy_info 
+		[[ $(ss -nltp) =~ 'wireproxy' ]] && green " ${T[${L}99]}\n $(eval echo "${T[${L}162]}") "
+	fi
 	}
 
 # 检查系统 WARP 单双栈情况。为了速度，先检查 WGCF 配置文件里的情况，再判断 trace
@@ -721,7 +911,7 @@ stack_switch(){
 	SWITCH114='sed -i "s/^.*\:\:\/0/#&/g" /etc/wireguard/wgcf.conf'
 	SWITCH116='sed -i "s/^.*0\.\0\/0/#&/g" /etc/wireguard/wgcf.conf'
 	
-	[[ $CLIENT = 3 && $SWITCHCHOOSE = [4D] ]] && red " ${T[${L}109]} " && exit 1
+	[[ $CLIENT = [35] && $SWITCHCHOOSE = [4D] ]] && red " ${T[${L}109]} " && exit 1
 	check_stack
 	if [[ $CHOOSE1 = [12] ]]; then TO=$(eval echo \${TO$CHOOSE1[m]})
 	elif [[ $SWITCHCHOOSE = [46D] ]]; then
@@ -772,7 +962,7 @@ EOF
 
 	# 判断处理器架构
 	case $(uname -m) in
-	aarch64 ) ARCHITECTURE=arm64;;	x86_64 ) ARCHITECTURE=amd64;;	s390x ) ARCHITECTURE=s390x && S390X='-s390x';;	* ) red " $(eval echo "${T[${L}134]}") " && exit 1;;
+	aarch64 ) ARCHITECTURE=arm64;;	x86_64 ) ARCHITECTURE=amd64;;	s390x ) ARCHITECTURE=s390x;;	* ) red " $(eval echo "${T[${L}134]}") " && exit 1;;
 	esac
 
 	# 判断当前 IPv4 与 IPv6 ，IP归属 及 WARP 方案, Linux Client 是否开启
@@ -784,10 +974,24 @@ EOF
 	# 判断当前 WARP 状态，决定变量 PLAN，变量 PLAN 含义：1=单栈  2=双栈  3=WARP已开启
 	[[ $TRACE4$TRACE6 =~ on|plus ]] && PLAN=3 || PLAN=$((IPV4+IPV6))
 
-	# 判断当前 Linux Client 状态，决定变量 CLIENT，变量 CLIENT 含义：0=未安装  1=已安装未激活  2=状态激活  3=Clinet 已开启
-	[[ $(type -P warp-cli 2>/dev/null) ]] && CLIENT=1 || CLIENT=0
-	[[ $CLIENT = 1 ]] && [[ $(systemctl is-active warp-svc 2>/dev/null) = active || $(systemctl is-enabled warp-svc 2>/dev/null) = enabled ]] && CLIENT=2
-	[[ $CLIENT = 2 ]] && [[ $(ss -nltp) =~ 'warp-svc' ]] && CLIENT=3 && proxy_info
+	# 判断当前 Linux Client 状态，决定变量 CLIENT，变量 CLIENT 含义：0=未安装  1=已安装未激活  2=状态激活  3=Clinet proxy 已开启  5=Clinet warp 已开启
+	CLIENT=0
+	if type -P warp-cli >/dev/null 2>&1; then
+		CLIENT=1 && CLIENT_INSTALLED="${T[${L}92]}"
+		[[ $(systemctl is-active warp-svc 2>/dev/null) = active || $(systemctl is-enabled warp-svc 2>/dev/null) = enabled ]] && CLIENT=2
+		if [[ $(warp-cli --accept-tos settings) =~ WarpProxy ]]; then
+			[[ $CLIENT = 2 ]] && [[ $(ss -nltp) =~ 'warp-svc' ]] && CLIENT=3 && proxy_info
+		else
+			[[ $CLIENT = 2 ]] && [[ $(ip a) =~ 'CloudflareWARP' ]] && CLIENT=5 && INTERFACE='--interface CloudflareWARP' && ip4_info
+		fi
+	fi
+
+	# 判断当前 WireProxy 状态，决定变量 WIREPROXY，变量 WIREPROXY 含义：0=未安装  1=已安装未激活  2=状态激活  3=Clinet 已开启
+	WIREPROXY=0
+	if type -P wireproxy >/dev/null 2>&1; then
+		WIREPROXY=1
+		[[ $WIREPROXY = 1 ]] && WIREPROXY_INSTALLED="${T[${L}92]}" && [[ $(ss -nltp) =~ 'wireproxy' ]] && WIREPROXY=3 && proxy_info || WIREPROXY=2
+	fi
 
 	# 在KVM的前提下，判断 Linux 版本是否小于 5.6，如是则安装 wireguard 内核模块，变量 WG=1。由于 linux 不能直接用小数作比较，所以用 （主版本号 * 100 + 次版本号 ）与 506 作比较
 	[[ $LXC != 1 && $(($(uname -r | cut -d . -f1) * 100 +  $(uname -r | cut -d . -f2))) -lt 506 ]] && WG=1
@@ -846,15 +1050,50 @@ update_license(){
 
 # 输入 Linux Client 端口,先检查默认的40000是否被占用,限制4-5位数字,准确匹配空闲端口
 input_port(){
+	i=5
 	ss -nltp | grep -q ':40000'[[:space:]] && reading " $(eval echo "${T[${L}103]}") " PORT || reading " ${T[${L}104]} " PORT
 	PORT=${PORT:-'40000'}
-	i=5
 	until echo "$PORT" | grep -qE "^[1-9][0-9]{3,4}$" && [[ ! $(ss -nltp) =~ :"$PORT"[[:space:]] ]]
 		do	(( i-- )) || true
 			[[ $i = 0 ]] && red " ${T[${L}29]} " && exit 1
 			echo "$PORT" | grep -qvE "^[1-9][0-9]{1,4}$" && reading " $(eval echo "${T[${L}111]}") " PORT
 			echo "$PORT" | grep -qE "^[1-9][0-9]{1,4}$" && [[ $(ss -nltp) =~ :"$PORT"[[:space:]] ]] && reading " $(eval echo "${T[${L}103]}") " PORT
 	done
+	}
+
+# Linux Client 或 WireProxy 端口
+change_port(){
+	socks5_port(){ input_port; warp-cli --accept-tos set-proxy-port "$PORT"; }
+	wireproxy_port(){
+		input_port
+		sed -i "s/BindAddress.*/BindAddress = 127.0.0.1:$PORT/g" /etc/wireguard/proxy.conf
+		systemctl restart wireproxy
+		}
+
+	INSTALL_CHECK=("$CLIENT" "$WIREPROXY")
+	CASE_RESAULT=("0 1"		"1 0"		"1 1")
+	SHOW_CHOOSE=(""			""		"${T[${L}151]}")
+	CHANGE_PORT1=("wireproxy_port"	"socks5_port"	"socks5_port")
+	CHANGE_PORT2=(""		"" 		"wireproxy_port")
+
+	for ((e=0;e<${#INSTALL_CHECK[@]}; e++)); do
+		[[ "${INSTALL_CHECK[e]}" -gt 1 ]]  && INSTALL_RESULT[e]=1 ||  INSTALL_RESULT[e]=0
+	done
+
+	for ((f=0; f<${#CASE_RESAULT[@]}; f++)); do
+		[[ ${INSTALL_RESULT[@]} = "${CASE_RESAULT[f]}" ]] && break
+	done
+
+	case "$f" in
+	0|1 ) ${CHANGE_PORT1[f]}
+		ss -nltp | grep -q ":$PORT" && green " $(eval echo "${T[${L}122]}") " || red " ${T[${L}34]} ";;
+	2 ) yellow " ${SHOW_CHOOSE[f]} " && reading " ${T[${L}50]} " MODE
+		case "$MODE" in
+		[1-2] ) $(eval echo "\${CHANGE_IP$MODE[f]}")
+		ss -nltp | grep -q ":$PORT" && green " $(eval echo "${T[${L}122]}") " || red " ${T[${L}34]} ";;
+		* ) red " ${T[${L}51]} [1-2] "; sleep 1; change_port;;
+		esac;;
+	esac	
 	}
 
 # 选用 iptables+dnsmasq+ipset 方案执行
@@ -958,10 +1197,20 @@ EOF
 	systemctl enable dnsmasq --now >/dev/null 2>&1 && sleep 2
 	}
 
-# WGCF 安装
+# WGCF 或 WireProxy 安装
 install(){
+	# WireProxy 禁止重复安装，自定义 Port
+	if [[ $OCTEEP = 1 ]]; then
+		ss -nltp | grep -q wireproxy && red " ${T[${L}166]} " && exit 1 || input_port
+	
+	# iptables 禁止重复安装，不适用于 IPv6 only VPS
+	elif [[ $ANEMONE = 1 ]]; then
+		[[ -e /etc/dnsmasq.d/warp.conf ]] && red " ${T[${L}167]} " && exit 1
+		[[ $m = 0 ]] && red " ${T[${L}147]} " && exit 1 || CONF=${CONF1[m]}
+	fi
+
 	# 先删除之前安装，可能导致失败的文件
-	rm -rf /usr/local/bin/wgcf /usr/bin/wireguard-go wgcf-account.toml wgcf-profile.conf
+	rm -rf /usr/bin/wgcf /usr/bin/wireguard-go wgcf-account.toml wgcf-profile.conf
 	
 	# 询问是否有 WARP+ 或 Teams 账户
 	[[ -z $LICENSETYPE ]] && yellow " ${T[${L}132]}" && reading " ${T[${L}50]} " LICENSETYPE
@@ -975,7 +1224,7 @@ install(){
 
 	# 脚本开始时间
 	start=$(date +%s)
-			
+
 	# 注册 WARP 账户 (将生成 wgcf-account.toml 文件保存账户信息)
 	# 判断 wgcf 的最新版本,如因 github 接口问题未能获取，默认 v2.2.12
 	{	
@@ -983,16 +1232,25 @@ install(){
 	latest=${latest:-'2.2.12'}
 
 	# 安装 wgcf，尽量下载官方的最新版本，如官方 wgcf 下载不成功，将使用 jsDelivr 的 CDN，以更好的支持双栈。并添加执行权限
-	wget --no-check-certificate -T1 -t1 $CDN -O /usr/local/bin/wgcf https://github.com/ViRb3/wgcf/releases/download/v"$latest"/wgcf_"$latest"_linux_$ARCHITECTURE ||
-	wget --no-check-certificate $CDN -O /usr/local/bin/wgcf https://cdn.jsdelivr.net/gh/fscarmen/warp/wgcf/wgcf_"$latest"_linux_$ARCHITECTURE
-	chmod +x /usr/local/bin/wgcf
+	#wget --no-check-certificate -T1 -t1 $CDN -O /usr/bin/wgcf https://github.com/ViRb3/wgcf/releases/download/v"$latest"/wgcf_"$latest"_linux_$ARCHITECTURE ||
+	wget --no-check-certificate $CDN -O /usr/bin/wgcf https://cdn.jsdelivr.net/gh/fscarmen/warp/wgcf/wgcf_"$latest"_linux_$ARCHITECTURE
+	chmod +x /usr/bin/wgcf
 
+	# 如安装 WireProxy ，尽量下载官方的最新版本，如官方 WireProxy 下载不成功，将使用 jsDelivr 的 CDN，以更好的支持双栈。并添加执行权限
+	if [[ $OCTEEP = 1 ]]; then
+		wireproxy_latest=$(wget --no-check-certificate -qO- -T1 -t1 $CDN "https://api.github.com/repos/octeep/wireproxy/releases/latest" | grep "tag_name" | head -n 1 | cut -d : -f2 | sed 's/[ \"v,]//g')
+		wireproxy_latest=${wireproxy_latest:-'1.0.3'}
+		wget --no-check-certificate -T1 -t1 $CDN -N https://github.com/octeep/wireproxy/releases/download/v"$wireproxy_latest"/wireproxy_linux_$ARCHITECTURE.tar.gz ||
+		wget --no-check-certificate $CDN -N https://cdn.jsdelivr.net/gh/fscarmen/warp/wireproxy/wireproxy_linux_$ARCHITECTURE.tar.gz
+		tar xzf wireproxy_linux_$ARCHITECTURE.tar.gz -C /usr/bin/; rm -f wireproxy_linux*
+	fi
+	
 	# 注册 WARP 账户 ( wgcf-account.toml 使用默认值加加快速度)。如有 WARP+ 账户，修改 license 并升级，并把设备名等信息保存到 /etc/wireguard/info.log
 	mkdir -p /etc/wireguard/ >/dev/null 2>&1
 	until [[ -e wgcf-account.toml ]] >/dev/null 2>&1; do
 		wgcf register --accept-tos >/dev/null 2>&1 && break
 	done
-	[[ -n $LICENSE ]] && yellow " \n${T[${L}35]}\n " && sed -i "s/license_key.*/license_key = \"$LICENSE\"/g" wgcf-account.toml &&
+	[[ -n $LICENSE ]] && yellow " \n${T[${L}35]}\n " && sed -i "s#license_key.*#license_key = \"$LICENSE\"#g" wgcf-account.toml &&
 	( wgcf update --name "$NAME" > /etc/wireguard/info.log 2>&1 || red " \n${T[${L}36]}\n " )
 
 	# 生成 Wire-Guard 配置文件 (wgcf-profile.conf)
@@ -1056,25 +1314,28 @@ install(){
 		${PACKAGE_UPDATE[int]}
 
 		# 安装一些必要的网络工具包和wireguard-tools (Wire-Guard 配置工具：wg、wg-quick)
-		${PACKAGE_INSTALL[int]} --no-install-recommends net-tools iproute2 openresolv dnsutils wireguard-tools iptables
+		${PACKAGE_INSTALL[int]} --no-install-recommends net-tools iproute2 openresolv dnsutils iptables
+		[[ $OCTEEP != 1 ]] && ${PACKAGE_INSTALL[int]} --no-install-recommends wireguard-tools
 
 		# 如 Linux 版本低于5.6并且是 kvm，则安装 wireguard 内核模块
 		[[ $WG = 1 ]] && ${PACKAGE_INSTALL[int]} --no-install-recommends linux-headers-"$(uname -r)" && ${PACKAGE_INSTALL[int]} --no-install-recommends wireguard-dkms
 		}
-		
+
 	Ubuntu(){
 		# 更新源
 		${PACKAGE_UPDATE[int]}
 
 		# 安装一些必要的网络工具包和 wireguard-tools (Wire-Guard 配置工具：wg、wg-quick)
-		${PACKAGE_INSTALL[int]} --no-install-recommends net-tools iproute2 openresolv dnsutils wireguard-tools iptables
+		${PACKAGE_INSTALL[int]} --no-install-recommends net-tools iproute2 openresolv dnsutils iptables
+		[[ $OCTEEP != 1 ]] && ${PACKAGE_INSTALL[int]} --no-install-recommends wireguard-tools
 		}
 		
 	CentOS(){
 		# 安装一些必要的网络工具包和wireguard-tools (Wire-Guard 配置工具：wg、wg-quick)
 		[[ $COMPANY = amazon ]] && ${PACKAGE_UPDATE[int]} && amazon-linux-extras install -y epel		
 		${PACKAGE_INSTALL[int]} epel-release
-		${PACKAGE_INSTALL[int]} wireguard-tools net-tools iptables
+		${PACKAGE_INSTALL[int]} net-tools iptables
+		[[ $OCTEEP != 1 ]] && ${PACKAGE_INSTALL[int]} wireguard-tools
 
 		# 如 Linux 版本低于5.6并且是 kvm，则安装 wireguard 内核模块
 		VERSION_ID=$(expr "$SYS" : '.*\s\([0-9]\{1,\}\)\.*')
@@ -1091,13 +1352,15 @@ install(){
 
 	Alpine(){
 		# 安装一些必要的网络工具包和wireguard-tools (Wire-Guard 配置工具：wg、wg-quick)
-		${PACKAGE_INSTALL[int]} net-tools iproute2 openresolv wireguard-tools openrc iptables
+		${PACKAGE_INSTALL[int]} net-tools iproute2 openresolv openrc iptables
+		[[ $OCTEEP != 1 ]] && ${PACKAGE_INSTALL[int]} wireguard-tools
 		}
-		
+
 	Arch(){
 		# 安装一些必要的网络工具包和wireguard-tools (Wire-Guard 配置工具：wg、wg-quick)
-		${PACKAGE_INSTALL[int]} wireguard-tools openresolv
-		}		
+		${PACKAGE_INSTALL[int]} openresolv
+		[[ $OCTEEP != 1 ]] && ${PACKAGE_INSTALL[int]} wireguard-tools
+		}
 
 	$SYSTEM
 
@@ -1116,14 +1379,101 @@ install(){
 
 	sh -c "$(eval echo "\$MODIFY$CONF")"
 
-	[[ $ANEMONE = 1 ]] && iptables_solution
+	if [[ $OCTEEP = 1 ]]; then
+	# 默认 Endpoint 和 DNS 默认 IPv4 和 双栈的，如是 IPv6 修改默认值
+	ENDPOINT='162.159.193.10' && DNS='1.1.1.1,8.8.8.8,8.8.4.4,2606:4700:4700::1111,2001:4860:4860::8888,2001:4860:4860::8844'
+	[[ $m = 0 ]] && ENDPOINT='[2606:4700:d0::a29f:c001]' && DNS='2606:4700:4700::1111,2001:4860:4860::8888,2001:4860:4860::8844,1.1.1.1,8.8.8.8,8.8.4.4'
+	
+	# 创建 WirePorxy 配置文件
+	cat > /etc/wireguard/proxy.conf << EOF
+# The [Interface] and [Peer] configurations follow the same semantics and meaning
+# of a wg-quick configuration. To understand what these fields mean, please refer to:
+# https://wiki.archlinux.org/title/WireGuard#Persistent_configuration
+# https://www.wireguard.com/#simple-network-interface
+[Interface]
+Address = 172.16.0.2/32 # The subnet should be /32 and /128 for IPv4 and v6 respectively
+MTU = $(grep MTU wgcf-profile.conf | sed "s/MTU = //g")
+PrivateKey = ${PRIVATEKEY:-"$(grep PrivateKey wgcf-profile.conf | sed "s/PrivateKey = //g")"}
+DNS = $DNS
+
+[Peer]
+PublicKey = bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+# PresharedKey = UItQuvLsyh50ucXHfjF0bbR4IIpVBd74lwKc8uIPXXs= (optional)
+Endpoint = $ENDPOINT:2408
+# PersistentKeepalive = 25 (optional)
+
+# TCPClientTunnel is a tunnel listening on your machine,
+# and it forwards any TCP traffic received to the specified target via wireguard.
+# Flow:
+# <an app on your LAN> --> localhost:25565 --(wireguard)--> play.cubecraft.net:25565
+#[TCPClientTunnel]
+#BindAddress = 127.0.0.1:25565
+#Target = play.cubecraft.net:25565
+
+# TCPServerTunnel is a tunnel listening on wireguard,
+# and it forwards any TCP traffic received to the specified target via local network.
+# Flow:
+# <an app on your wireguard network> --(wireguard)--> 172.16.31.2:3422 --> localhost:25545
+#[TCPServerTunnel]
+#ListenPort = 3422
+#Target = localhost:25545
+
+# Socks5 creates a socks5 proxy on your LAN, and all traffic would be routed via wireguard.
+[Socks5]
+BindAddress = 127.0.0.1:$PORT
+
+# Socks5 authentication parameters, specifying username and password enables
+# proxy authentication.
+#Username = ...
+# Avoid using spaces in the password field
+#Password = ...
+EOF
+	
+	# 创建 WireProxy systemd 进程守护
+	cat > /lib/systemd/system/wireproxy.service << EOF
+[Unit]
+Description=WireProxy for WARP
+After=network.target
+Documentation=https://github.com/fscarmen/warp
+Documentation=https://github.com/octeep/wireproxy
+
+[Service]
+ExecStart=/usr/bin/wireproxy -c /etc/wireguard/proxy.conf
+RemainAfterExit=yes
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+	# 运行 wireproxy
+	systemctl enable --now wireproxy; sleep 1
+
+	# 保存好配置文件, 把 wgcf-profile.conf 复制到/etc/wireguard/ 并命名为 wgcf.conf, 如有 Teams，改为 Teams 账户信息	
+	mv -f wgcf-profile.conf /etc/wireguard/wgcf.conf >/dev/null 2>&1
+	mv -f wgcf-account.toml menu.sh /etc/wireguard >/dev/null 2>&1
+	[[ $CONFIRM = [Yy] ]] && teams_change && echo "$TEAMS" > /etc/wireguard/info.log 2>&1
+
+	# 创建再次执行的软链接快捷方式，再次运行可以用 warp 指令,设置默认语言
+	chmod +x /etc/wireguard/menu.sh >/dev/null 2>&1
+	ln -sf /etc/wireguard/menu.sh /usr/bin/warp && green " ${T[${L}38]} "
+	echo "$L" >/etc/wireguard/language
+
+	# 结果提示，脚本运行时间，次数统计
+	proxy_info
+	end=$(date +%s)
+	green " $(eval echo "${T[${L}149]}")\n $(eval echo "${T[${L}162]}") "
+	red "\n==============================================================\n"
+	yellow " ${T[${L}43]}\n " && help
+
+	else [[ $ANEMONE = 1 ]] && iptables_solution
 
 	# 特殊 VPS 的配置文件 DNS 次序
 	[[ $(hostname 2>&1) = DiG9 ]] && sed -i "s/DNS.*/DNS = 8.8.8.8,8.8.4.4,2001:4860:4860::8888,2001:4860:4860::8844/g" wgcf-profile.conf
 
 	# 把 wgcf-profile.conf 复制到/etc/wireguard/ 并命名为 wgcf.conf, 如有 Teams，改为 Teams 账户信息
 	cp -f wgcf-profile.conf /etc/wireguard/wgcf.conf >/dev/null 2>&1
-	
+
 	[[ $CONFIRM = [Yy] ]] && teams_change && echo "$TEAMS" > /etc/wireguard/info.log 2>&1
 
 	# 设置开机启动
@@ -1132,7 +1482,8 @@ install(){
 
 	# 如是 LXC，安装 Wireguard-GO。部分较低内核版本的KVM，即使安装了wireguard-dkms, 仍不能正常工作，兜底使用 wireguard-go
 	[[ $LXC = 1 ]] || ([[ $WG = 1 ]] && [[ $(systemctl is-active wg-quick@wgcf) != active || $(systemctl is-enabled wg-quick@wgcf) != enabled ]]) &&
-	wget --no-check-certificate $CDN -O /usr/bin/wireguard-go https://cdn.jsdelivr.net/gh/fscarmen/warp/wireguard-go/wireguard-go_linux_$ARCHITECTURE.tar.gz && chmod +x /usr/bin/wireguard-go
+	wget --no-check-certificate $CDN https://cdn.jsdelivr.net/gh/fscarmen/warp/wireguard-go/wireguard-go_linux_$ARCHITECTURE.tar.gz &&
+	tar xzf wireguard-go_linux_$ARCHITECTURE.tar.gz -C /usr/bin/ && rm -f wireguard-go_linux_* && chmod +x /usr/bin/wireguard-go
 
 	# 保存好配置文件
 	mv -f wgcf-account.toml wgcf-profile.conf menu.sh /etc/wireguard >/dev/null 2>&1
@@ -1141,13 +1492,13 @@ install(){
 	chmod +x /etc/wireguard/menu.sh >/dev/null 2>&1
 	ln -sf /etc/wireguard/menu.sh /usr/bin/warp && green " ${T[${L}38]} "
 	echo "$L" >/etc/wireguard/language
-	
+
 	# 自动刷直至成功（ warp bug，有时候获取不了ip地址），重置之前的相关变量值，记录新的 IPv4 和 IPv6 地址和归属地，IPv4 / IPv6 优先级别
 	green " ${T[${L}39]} "
 	unset IP4 IP6 WAN4 WAN6 COUNTRY4 COUNTRY6 ASNORG4 ASNORG6 TRACE4 TRACE6 PLUS4 PLUS6 WARPSTATUS4 WARPSTATUS6
 	[[ $COMPANY = amazon ]] && red " $(eval echo "${T[${L}40]}") " && reboot || net
 	[[ $(curl -ksm8 https://ip.gs) = "$WAN6" ]] && PRIORITY=${T[${L}106]} || PRIORITY=${T[${L}107]}
-	
+
 	# 部分 LXC 内核已经包含 WireGuard 模块则会优先使用，此场景下删除 WireGuard-go
 	[[ -e /usr/bin/wireguard-go ]] && ! pgrep -laf "wireguard-go" >/dev/null 2>&1 && rm -f /usr/bin/wireguard-go
 
@@ -1163,6 +1514,7 @@ install(){
 	red "\n==============================================================\n"
 	yellow " ${T[${L}43]}\n " && help
 	[[ $TRACE4$TRACE6 = offoff ]] && red " ${T[${L}44]} "
+	fi
 	}
 
 proxy(){
@@ -1170,24 +1522,70 @@ proxy(){
 		# 设置为代理模式，如有 WARP+ 账户，修改 license 并升级
 		green " ${T[${L}84]} "
 		warp-cli --accept-tos register >/dev/null 2>&1
-		warp-cli --accept-tos set-mode proxy >/dev/null 2>&1
-		warp-cli --accept-tos set-proxy-port "$PORT" >/dev/null 2>&1
-		warp-cli --accept-tos connect >/dev/null 2>&1
-		warp-cli --accept-tos enable-always-on >/dev/null 2>&1
-		[[ -n $LICENSE ]] && ( yellow " ${T[${L}35]} " && 
+		[[ -n $LICENSE ]] && ( yellow " ${T[${L}35]} " &&
 		warp-cli --accept-tos set-license "$LICENSE" >/dev/null 2>&1 && sleep 1 &&
 		ACCOUNT=$(warp-cli --accept-tos account 2>/dev/null) &&
 		[[ $ACCOUNT =~ Limited ]] && echo "$LICENSE" >/etc/wireguard/license && green " ${T[${L}62]} " ||
 		red " ${T[${L}36]} " )
-		sleep 2 && [[ ! $(ss -nltp) =~ 'warp-svc' ]] && red " ${T[${L}87]} " && exit 1 || green " $(eval echo "${T[${L}86]}") "
+		if [[ $LUBAN = 1 ]]; then
+			i=1; j=5; INTERFACE='--interface CloudflareWARP'
+			yellow " $(eval echo "${T[${L}11]}")\n $(eval echo "${T[${L}12]}") "
+			warp-cli --accept-tos add-excluded-route 0.0.0.0/0 >/dev/null 2>&1
+			warp-cli --accept-tos add-excluded-route ::0/0 >/dev/null 2>&1
+			warp-cli --accept-tos set-mode warp >/dev/null 2>&1
+			warp-cli --accept-tos connect >/dev/null 2>&1
+			warp-cli --accept-tos enable-always-on >/dev/null 2>&1
+			sleep 5
+			ip -4 rule add from 172.16.0.2 lookup 51820
+			ip -4 route add default dev CloudflareWARP table 51820
+			ip -4 rule add table main suppress_prefixlength 0
+			ip4_info
+			until [[ -n $IP4 ]]
+			do	(( i++ )) || true
+				yellow " $(eval echo "${T[${L}12]}") "
+				warp-cli --accept-tos disconnect >/dev/null 2>&1
+				warp-cli --accept-tos disable-always-on >/dev/null 2>&1
+				ip -4 rule delete from 172.16.0.2 lookup 51820
+				ip -4 rule delete table main suppress_prefixlength 0
+				sleep 2
+				warp-cli --accept-tos connect >/dev/null 2>&1
+				warp-cli --accept-tos enable-always-on >/dev/null 2>&1
+				sleep 5
+				ip -4 rule add from 172.16.0.2 lookup 51820
+				ip -4 route add default dev CloudflareWARP table 51820
+				ip -4 rule add table main suppress_prefixlength 0
+				ip4_info
+				if [[ $i = "$j" ]]; then
+					warp-cli --accept-tos disconnect >/dev/null 2>&1
+					warp-cli --accept-tos disable-always-on >/dev/null 2>&1
+					ip -4 rule delete from 172.16.0.2 lookup 51820
+					ip -4 rule delete table main suppress_prefixlength 0
+					red " $(eval echo "${T[${L}13]}") " && exit 1
+				fi
+			done
+			green " ${T[${L}14]} "
+		else
+			warp-cli --accept-tos set-mode proxy >/dev/null 2>&1
+			warp-cli --accept-tos set-proxy-port "$PORT" >/dev/null 2>&1
+			warp-cli --accept-tos connect >/dev/null 2>&1
+			warp-cli --accept-tos enable-always-on >/dev/null 2>&1
+			[[ -n $LICENSE ]] && ( yellow " ${T[${L}35]} " && 
+			warp-cli --accept-tos set-license "$LICENSE" >/dev/null 2>&1 && sleep 1 &&
+			ACCOUNT=$(warp-cli --accept-tos account 2>/dev/null) &&
+			[[ $ACCOUNT =~ Limited ]] && echo "$LICENSE" >/etc/wireguard/license && green " ${T[${L}62]} " ||
+			red " ${T[${L}36]} " )
+			sleep 2 && [[ ! $(ss -nltp) =~ 'warp-svc' ]] && red " ${T[${L}87]} " && exit 1 || green " $(eval echo "${T[${L}86]}") "
+		fi
 		}
 	
-	[[ $ARCHITECTURE = arm64 ]] && red " ${T[${L}101]} " && exit 1
+	# 禁止安装的情况。重复安装，非 AMD64 CPU 架构，IPv4 是 WARP
+	[[ $CLIENT -ge 2 ]] && red " ${T[${L}85]} " && exit 1
+	[[ $ARCHITECTURE != amd64 ]] && red " ${T[${L}101]} " && exit 1
 	[[ $TRACE4 != off ]] && red " ${T[${L}95]} " && exit 1
 
  	# 安装 WARP Linux Client
 	input_license
-	input_port
+	[[ $LUBAN != 1 ]] && input_port
 	start=$(date +%s)
 	mkdir -p /etc/wireguard/ >/dev/null 2>&1
 	if [[ $CLIENT = 0 ]]; then green " ${T[${L}83]} "
@@ -1208,7 +1606,9 @@ proxy(){
 				../configure --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
 				make install
 				cd ..; cd ..; rm -rf glibc-2.28*
+			else	${PACKAGE_UPDATE[int]}; ${PACKAGE_INSTALL[int]} cloudflare-warp
 			fi
+
 		else 	${PACKAGE_UPDATE[int]}; ${PACKAGE_INSTALL[int]} lsb-release
 			[[ $SYSTEM = Debian && ! $(type -P gpg 2>/dev/null) ]] && ${PACKAGE_INSTALL[int]} gnupg
 			[[ $SYSTEM = Debian && ! $(apt list 2>/dev/null | grep apt-transport-https ) =~ installed ]] && ${PACKAGE_INSTALL[int]} apt-transport-https
@@ -1234,18 +1634,35 @@ proxy(){
 	chmod +x /etc/wireguard/menu.sh >/dev/null 2>&1
 	ln -sf /etc/wireguard/menu.sh /usr/bin/warp && green " ${T[${L}38]} "
 	echo "$L" >/etc/wireguard/language
-	
+
 	# 结果提示，脚本运行时间，次数统计
-	proxy_info
-	end=$(date +%s)
-	[[ $ACCOUNT =~ Free ]] && green " $(eval echo "${T[${L}94]}")\n $(eval echo "${T[${L}99]}") "
-	[[ $ACCOUNT =~ Limited ]] && green " $(eval echo "${T[${L}94]}")\n $(eval echo "${T[${L}99]}")\n ${T[${L}63]}：$QUOTA "
+	ACCOUNT=$(warp-cli --accept-tos account 2>/dev/null)
+	if [[ $ACCOUNT =~ 'Limited' ]]; then
+		QUOTA=$(expr "$ACCOUNT" : '.*Quota:\s\([0-9]\{1,\}\)\s.*')
+		[[ $QUOTA -gt 10000000000000 ]] && QUOTA="$((QUOTA/1000000000000)) TiB" ||  QUOTA="$((QUOTA/1000000000)) GiB"
+		AC='+'
+	fi
+
+	if [[ $LUBAN = 1 ]]; then
+		[[ $L = C ]] && COUNTRY4=$(translate "$COUNTRY4")
+		end=$(date +%s)
+		red "\n==============================================================\n"
+		green " $(eval echo "${T[${L}94]}")\n $(eval echo "${T[${L}169]}") "
+
+	else	proxy_info
+		end=$(date +%s)
+		red "\n==============================================================\n"
+		green " $(eval echo "${T[${L}94]}")\n $(eval echo "${T[${L}27]}") "
+	fi
+	[[ $ACCOUNT =~ 'Limited' ]] && green " ${T[${L}63]}：$QUOTA "
 	red "\n==============================================================\n"
 	yellow " ${T[${L}43]}\n " && help
 	}
 
-# iptables+dnsmasq+ipset 方案
-stream(){
+# iptables+dnsmasq+ipset 方案，IPv6 only 不适用
+stream_solution(){
+	[[ $m = 0 ]] && red " ${T[${L}147]} " && exit 1
+
 	red "\n=============================================================="
 	yellow " ${T[${L}139]}\n "
 	green " 1.${T[${L}48]} "
@@ -1255,7 +1672,24 @@ stream(){
 	case "$IPTABLES" in
 		1 ) CONF=${CONF1[m]}; ANEMONE=1; install;;
 		2 ) [[ $OPTION != e ]] && menu || exit;;
-		* ) red " ${T[${L}51]} [1-2]"; sleep 1; stream;;
+		* ) red " ${T[${L}51]} [1-2]"; sleep 1; stream_solution;;
+	esac
+	}
+
+# wireproxy 方案
+wireproxy_solution(){
+	ss -nltp | grep -q wireproxy && red " ${T[${L}166]} " && exit 1
+	
+	red "\n=============================================================="
+	yellow " ${T[${L}165]}\n "
+	green " 1.${T[${L}48]} "
+	[[ $OPTION != w ]] && green " 2.${T[${L}49]} " || green " 2.${T[${L}76]} "
+	red "=============================================================="
+	reading " ${T[${L}50]} " WIREPROXY_CHOOSE
+	case "$WIREPROXY_CHOOSE" in
+		1 ) OCTEEP=1; install;;
+		2 ) [[ $OPTION != w ]] && menu || exit;;
+		* ) red " ${T[${L}51]} [1-2]"; sleep 1; wireproxy_solution;;
 	esac
 	}
 
@@ -1265,7 +1699,7 @@ update(){
 	[[ $TRACE4$TRACE6 =~ plus ]] && red " ${T[${L}58]} " && exit 1
 	[[ ! -e /etc/wireguard/wgcf-account.toml ]] && red " ${T[${L}59]} " && exit 1
 	[[ ! -e /etc/wireguard/wgcf.conf ]] && red " ${T[${L}60]} " && exit 1
-	
+
 	[[ -z $LICENSETYPE ]] && yellow " ${T[${L}31]}" && reading " ${T[${L}50]} " LICENSETYPE
 	case $LICENSETYPE in
 	1 ) UPDATE_LICENSE=1 && update_license
@@ -1278,7 +1712,7 @@ update(){
 	net
 	[[ $(curl -ks4 https://www.cloudflare.com/cdn-cgi/trace | grep warp | sed "s/warp=//g") = plus || $(curl -ks6 https://www.cloudflare.com/cdn-cgi/trace | grep warp | sed "s/warp=//g") = plus ]] &&
 	green " ${T[${L}62]}\n ${T[${L}25]}：$(grep 'Device name' /etc/wireguard/info.log | awk '{ print $NF }')\n ${T[${L}63]}：$(grep Quota /etc/wireguard/info.log | awk '{ print $(NF-1), $NF }')" ) || red " ${T[${L}36]} ";;
-	
+
 	2 ) input_url
 	[[ $CONFIRM = [Yy] ]] && (echo "$TEAMS" > /etc/wireguard/info.log 2>&1
 	teams_change
@@ -1288,7 +1722,7 @@ update(){
 	* ) red " ${T[${L}51]} [1-2] "; sleep 1; update
 	esac
 	}
-	
+
 	client_account(){
 	[[ $ARCHITECTURE = arm64 ]] && red " ${T[${L}101]} " && exit 1
 	[[ $(warp-cli --accept-tos account) =~ Limited ]] && red " ${T[${L}97]} " && exit 1
@@ -1300,56 +1734,99 @@ update(){
 	QUOTA=$(expr "$ACCOUNT" : '.*Quota:\s\([0-9]\{1,\}\)\s.*')
 	[[ $QUOTA -gt 10000000000000 ]] && QUOTA="$((QUOTA/1000000000000)) TB" ||  QUOTA="$((QUOTA/1000000000)) GB"
 	green " ${T[${L}62]}\n ${T[${L}63]}：$QUOTA "
-	
+
 	else red " ${T[${L}36]} "
 	fi
 	}
+	
+	wireproxy_account(){
+	[[ $(eval echo "\$(curl -sx socks5h://localhost:$(ss -nltp | grep wireproxy | grep -oP '127.0*\S+' | cut -d: -f2) https://www.cloudflare.com/cdn-cgi/trace)") =~ plus ]] && red " ${T[${L}58]} " && exit 1
+	[[ ! -e /etc/wireguard/wgcf-account.toml ]] && red " ${T[${L}59]} " && exit 1
+	[[ ! -e /etc/wireguard/wgcf.conf ]] && red " ${T[${L}60]} " && exit 1
 
-	# 根据 WARP interface 和 Client 的安装情况判断升级的对象
-	[[ $(type -P wg-quick) ]] && WGCFINSTALL=1 || WGCFINSTALL=0
-	[[ $(type -P warp-cli) ]] && SOCK5INSTALL=1 || SOCK5INSTALL=0
-	case $WGCFINSTALL$SOCK5INSTALL in
-	01 ) client_account; exit 0;;
-	10 ) wgcf_account; exit 0;;
-	11 ) yellow " ${T[${L}98]} " && reading " ${T[${L}50]} " MODE
+	[[ -z $LICENSETYPE ]] && yellow " ${T[${L}31]}" && reading " ${T[${L}50]} " LICENSETYPE
+	case $LICENSETYPE in
+	1 ) UPDATE_LICENSE=1 && update_license
+	cd /etc/wireguard || exit
+	sed -i "s#license_key.*#license_key = \"$LICENSE\"#g" wgcf-account.toml &&
+	wgcf update --name "$NAME" > /etc/wireguard/info.log 2>&1 &&
+	(wgcf generate >/dev/null 2>&1
+	sed -i "2s#.*#$(sed -ne 2p wgcf-profile.conf)#;3s#.*#$(sed -ne 3p wgcf-profile.conf)#;4s#.*#$(sed -ne 4p wgcf-profile.conf)#" wgcf.conf
+	sed -i "s#PrivateKey.*#PrivateKey = $(grep "PrivateKey.*" /etc/wireguard/wgcf.conf | sed "s#PrivateKey = ##g")#g" proxy.conf
+	systemctl restart wireproxy
+	[[ $(eval echo "\$(curl -sx socks5h://localhost:$(ss -nltp | grep wireproxy | grep -oP '127.0*\S+' | cut -d: -f2) https://www.cloudflare.com/cdn-cgi/trace)") =~ plus ]] &&
+	green " ${T[${L}62]}\n ${T[${L}25]}：$(grep 'Device name' /etc/wireguard/info.log | awk '{ print $NF }')\n ${T[${L}63]}：$(grep Quota /etc/wireguard/info.log | awk '{ print $(NF-1), $NF }')" ) || red " ${T[${L}36]} ";;
+
+	2 ) input_url
+	[[ $CONFIRM = [Yy] ]] && (echo "$TEAMS" > /etc/wireguard/info.log 2>&1
+	sed -i "s#PrivateKey.*#PrivateKey = $PRIVATEKEY#g" /etc/wireguard/proxy.conf
+	systemctl restart wireproxy
+	[[ $(eval echo "\$(curl -sx socks5h://localhost:$(ss -nltp | grep wireproxy | grep -oP '127.0*\S+' | cut -d: -f2) https://www.cloudflare.com/cdn-cgi/trace)") =~ plus ]] && green " ${T[${L}128]} ");;
+
+	* ) red " ${T[${L}51]} [1-2] "; sleep 1; update
+	esac
+	}
+	# 根据 WARP interface 、 Client 和 WirePorxy 的安装情况判断升级的对象
+	INSTALL_CHECK=("wg-quick" "warp-cli" "wireproxy")
+	CASE_RESAULT=("0 0 0"		"0 0 1"			"0 1 0"			"0 1 1"			"1 0 0"			"1 0 1"			"1 1 0"			"1 1 1")
+	SHOW_CHOOSE=("${T[${L}150]}"	""			""			"${T[${L}151]}"		""			"${T[${L}152]}"		"${T[${L}153]}"		"${T[${L}154]}")
+	ACCOUNT1=(""			"wireproxy_account"	"client_account"	"client_account"	"wgcf_account"		"wgcf_account"		"wgcf_account"		"wgcf_account")
+	ACCOUNT2=(""			"" 			"" 			"wireproxy_account" 	""			"wireproxy_account" 	"client_account" 	"client_account")
+	ACCOUNT3=(""			"" 			""			""			""			""			""			"wireproxy_account")
+
+	for ((c=0; c<${#INSTALL_CHECK[@]}; c++)); do
+		type -P ${INSTALL_CHECK[c]} >/dev/null 2>&1 && INSTALL_RESULT[c]=1 || INSTALL_RESULT[c]=0
+	done
+
+	for ((d=0; d<${#CASE_RESAULT[@]}; d++)); do
+		[[ ${INSTALL_RESULT[@]} = "${CASE_RESAULT[d]}" ]] && break
+	done
+
+	case "$d" in
+	0 ) red " ${T[${L}150]} " && exit 1;;
+	1|2|4 ) ${ACCOUNT1[d]};;
+	* ) yellow " ${SHOW_CHOOSE[d]} " && reading " ${T[${L}50]} " MODE
 		case "$MODE" in
-		1 ) wgcf_account; exit 0;;
-		2 ) client_account; exit 0;;
-		* ) red " ${T[${L}51]} [1-2] "; sleep 1; update;;
+		[1-3] ) $(eval echo "\${ACCOUNT$MODE[d]}");;
+		* ) red " ${T[${L}51]} [1-3] "; sleep 1; update;;
 		esac;;
 	esac
 }
 
 # 判断当前 WARP 网络接口及 Client 的运行状态，并对应的给菜单和动作赋值
 menu_setting(){
-	case $CLIENT in
-	2 ) OPTION1="${T[${L}88]}"; OPTION2="${T[${L}143]}"; OPTION3="${T[${L}144]}"; OPTION4="${T[${L}78]}"; OPTION5="${T[${L}77]}";
-	    ACTION1(){ proxy_onoff; }; ACTION2(){ input_port; warp-cli --accept-tos set-proxy-port "$PORT"; };
-	    ACTION3(){ CONF=106; [[ $TRACE6 != off ]] && red " ${T[${L}140]} " && exit 1 || install; }; ACTION4(){ update; }; ACTION5(){ onff; };;
+	if [[ "$CLIENT" -gt 1 || "$WIREPROXY" -gt 1 ]]; then
+		[[ "$CLIENT" -lt 3 ]] && OPTION1="${T[${L}88]}" || OPTION1="${T[${L}89]}"
+		[[ "$WIREPROXY" -lt 3 ]] && OPTION2="${T[${L}163]}" || OPTION2="${T[${L}164]}"
+		OPTION3="${T[${L}143]}"; OPTION4="${T[${L}78]}"
 
-	3 ) OPTION1="${T[${L}89]}"; OPTION2="${T[${L}143]}"; OPTION3="${T[${L}144]}"; OPTION4="${T[${L}78]}"; OPTION5="${T[${L}77]}";
-	    ACTION1(){ proxy_onoff; }; ACTION2(){ input_port; warp-cli --accept-tos set-proxy-port "$PORT"; };
-	    ACTION3(){ CONF=106; [[ $TRACE6 != off ]] && red " ${T[${L}140]} " && exit 1 || install; }; ACTION4(){ update; }; ACTION5(){ onff; };;
+		ACTION1(){ proxy_onoff; }; ACTION2(){ wireproxy_onoff; }; ACTION3(){ change_port; }; ACTION4(){ update; };
 
-	* ) check_stack
+	else check_stack
 	case "$m" in
-	[0-2] ) NATIVE=("IPv6 only" "IPv4 only" "${T[${L}69]}")
-		CONF1=("014" "104" "114")
-		CONF2=("016" "106" "116")
-		CONF3=("01D" "10D" "11D")
+	[0-2] ) NATIVE=("IPv6 only"	"IPv4 only"	"${T[${L}69]}")
+		CONF1=("014"		"104"		"114")
+		CONF2=("016"		"106"		"116")
+		CONF3=("01D"		"10D"		"11D")
 		OPTION1="$(eval echo "${T[${L}66]}")"; OPTION2="$(eval echo "${T[${L}67]}")"; OPTION3="$(eval echo "${T[${L}68]}")"; OPTION4="${T[${L}71]}"
 		ACTION1(){ CONF=${CONF1[m]}; install; }; ACTION2(){ CONF=${CONF2[m]}; install; }; ACTION3(){ CONF=${CONF3[m]}; install; }; ACTION4(){ OPTION=o; net; };;
 	
 	* )	OPTION1="$(eval echo "${T[${L}141]}")"; OPTION2="$(eval echo "${T[${L}142]}")"; OPTION3="${T[${L}78]}"; OPTION4="${T[${L}77]}"
 		ACTION1(){ stack_switch; }; ACTION2(){ stack_switch; }; ACTION3(){ update; }; ACTION4(){ onoff; };;
-	esac;;
 	esac
+	fi
+	
+	[[ -e /etc/dnsmasq.d/warp.conf ]] && IPTABLE_INSTALLED="${T[${L}92]}"
+	
+	OPTION5="$CLIENT_INSTALLED${T[${L}82]}"; OPTION6="${T[${L}123]}"; OPTION7="${T[${L}72]}"; OPTION8="${T[${L}74]}"; OPTION9="${T[${L}73]}"; OPTION10="${T[${L}75]}";
+	OPTION11="${T[${L}80]}"; OPTION12="$IPTABLE_INSTALLED${T[${L}138]}"; OPTION13="$WIREPROXY_INSTALLED${T[${L}148]}"; OPTION14="$CLIENT_INSTALLED${T[${L}168]}"; OPTION0="${T[${L}76]}"
 
-	OPTION5="${T[${L}82]}"; 
-	OPTION6="${T[${L}123]}"; OPTION7="${T[${L}72]}"; OPTION8="${T[${L}74]}"; OPTION9="${T[${L}73]}"; OPTION10="${T[${L}75]}"; OPTION11="${T[${L}80]}"; OPTION12="${T[${L}138]}"; OPTION0="${T[${L}76]}"
 	ACTION5(){ proxy; }; ACTION6(){ change_ip; }; ACTION7(){ uninstall; }; ACTION8(){ plus; }; ACTION9(){ bbrInstall; }; ACTION10(){ ver; }; 
 	ACTION11(){ bash <(curl -sSL https://raw.githubusercontent.com/fscarmen/warp_unlock/main/unlock.sh) -$L; }; 
-	ACTION12(){ [[ $m = 0 ]] && red " ${T[${L}147]} " && exit 1; CONF=${CONF1[m]}; ANEMONE=1 ;install; }; ACTION0(){ exit; }
+	ACTION12(){ ANEMONE=1 ;install; }; 
+	ACTION13(){ OCTEEP=1; install; };
+	ACTION14(){ LUBAN=1; proxy; };
+	ACTION0(){ exit; }
 	}
 
 # 显示菜单
@@ -1368,13 +1845,18 @@ menu(){
 	[[ $CLIENT = 0 ]] && green "	${T[${L}112]} "
 	[[ $CLIENT = 2 ]] && green "	${T[${L}113]} "
 	[[ $CLIENT = 3 ]] && green "	WARP$AC ${T[${L}24]}	$(eval echo "${T[${L}27]}") "
+	[[ $CLIENT = 5 ]] && green "	WARP$AC ${T[${L}24]}	$(eval echo "${T[${L}169]}") "
+	[[ $WIREPROXY = 0 ]] && green "	${T[${L}160]} "
+	[[ $WIREPROXY = 2 ]] && green "	${T[${L}161]} "
+	[[ $WIREPROXY = 3 ]] && green "	WARP$AC2 ${T[${L}159]}	$(eval echo "${T[${L}162]}") "	
  	red "\n======================================================================================================================\n"
-	green " 1.  $OPTION1\n 2.  $OPTION2\n 3.  $OPTION3\n 4.  $OPTION4\n 5.  $OPTION5\n 6.  $OPTION6\n 7.  $OPTION7\n 8.  $OPTION8\n 9.  $OPTION9 \n 10. $OPTION10\n 11. $OPTION11 \n 12. $OPTION12 \n 0.  $OPTION0\n "
+	green " 1.  $OPTION1\n 2.  $OPTION2\n 3.  $OPTION3\n 4.  $OPTION4\n 5.  $OPTION5\n 6.  $OPTION6\n 7.  $OPTION7\n 8.  $OPTION8\n 9.  $OPTION9 \n 10. $OPTION10\n 11. $OPTION11\n 12. $OPTION12\n 13. $OPTION13\n 14. $OPTION14\n 0. $OPTION0\n "
 	reading " ${T[${L}50]} " CHOOSE1
 		case "$CHOOSE1" in
 		1 ) ACTION1;; 2 ) ACTION2;; 3 ) ACTION3;; 4 ) ACTION4;; 5 ) ACTION5;;
 		6 ) ACTION6;; 7 ) ACTION7;; 8 ) ACTION8;; 9 ) ACTION9;; 10 ) ACTION10;;
-		11 ) ACTION11;; 12 ) ACTION12;; 0 ) ACTION0;; * ) red " ${T[${L}51]} [0-10] "; sleep 1; menu;;
+		11 ) ACTION11;; 12 ) ACTION12;; 13 ) ACTION13;; 14 ) ACTION14;;
+		0 ) ACTION0;; * ) red " ${T[${L}51]} [0-10] "; sleep 1; menu;;
 		esac
 	}
 
@@ -1418,6 +1900,7 @@ n ) net; exit 0;;
 o ) onoff; exit 0;;
 r ) proxy_onoff; exit 0;;
 s ) stack_switch; exit 0;;
+y ) wireproxy_onoff; exit 0;;
 esac
 
 # 主程序运行 3/3
@@ -1433,16 +1916,18 @@ case "$OPTION" in
 	yellow " ${T[${L}79]} " && stack_switch
 	else
 		case "$OPTION" in
-		4 ) [[ $CLIENT = 3 ]] && red " ${T[${L}110]} " && exit 1
+		4 ) [[ $CLIENT = [35] ]] && red " ${T[${L}110]} " && exit 1
 		    CONF=${CONF1[m]};; 
 		6 ) CONF=${CONF2[m]};;
-		d ) [[ $CLIENT = 3 ]] && red " ${T[${L}110]} " && exit 1
+		d ) [[ $CLIENT = [35] ]] && red " ${T[${L}110]} " && exit 1
 		    CONF=${CONF3[m]};;
 		esac
 		install
 	fi;;
-c )	[[ $CLIENT -ge 2 ]] && red " ${T[${L}92]} " && exit 1 || proxy;;
+c )	proxy;;
+l )	LUBAN=1 && proxy;;
 a )	update;;
-e )	[[ $m = 0 ]] && red " ${T[${L}147]} " && exit 1 || stream;;
+e )	stream_solution;;
+w )	wireproxy_solution;;
 * )	menu;;
 esac
